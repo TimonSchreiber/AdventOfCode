@@ -26,7 +26,6 @@ public class CalorieCounting {
         int part2 = sumOfTopN(caloriesPerElf, 3);
         System.out.println("-> Part2: " + part2);
 
-
     }
 
     private static int getMostCalories(List<Calorie> caloriesPerElf) {
