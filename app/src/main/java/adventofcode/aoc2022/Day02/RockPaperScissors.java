@@ -4,7 +4,7 @@ import java.util.List;
 
 import adventofcode.util.ReadInput;
 
-/**
+/** TODO: this Day needs some improvement: Maybe make the Shapes an Enum and get the values form there.
  * https://adventofcode.com/2022/day/2
  * 
  * A -> Rock     -> int value of 65
