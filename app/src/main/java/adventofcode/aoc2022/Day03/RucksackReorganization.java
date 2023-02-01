@@ -28,8 +28,6 @@ public class RucksackReorganization {
         System.out.println("-> Part2: " + part2);
     }
 
-    // new solution
-
     private static int findCommonItem(List<Compartments> compartments) {
         return compartments.stream()
                 .map(Compartments::findCommonItem)
