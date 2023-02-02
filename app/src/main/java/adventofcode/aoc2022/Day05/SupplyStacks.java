@@ -7,16 +7,64 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import adventofcode.util.ReadInput;
 
 /** FIXME: main method at the top and then calling everthing
  * TODO: maybe more streams?
  * https://adventofcode.com/2022/day/5
  */
 public class SupplyStacks {
+    
+    public static void main(String[] args) {
+        
+        System.out.println("\n### Day 5: Supply Stacks ###\n");
+
+        // file path as String
+        final String filepath = "aoc2022/Day05/test";
+
+        String input = ReadInput.toSingleStringFrom(filepath);
+
+        String[] split = input.split("\n\n");
+
+        List<String> input1 = split[0].lines().toList();
+        List<String> input2 = split[1].lines().toList();
+
+        // just for testing:
+        System.out.println("Size of input1: " + input1.size());
+        System.out.println("Size of input2: " + input2.size());
+
+        CrateStacks crates = CrateParser.parse(input1);
+        List<Procedure> procedures = ProcedureParser.parse(input2);
+
+        String part1 = moveAll(crates, procedures, new CrateMover9000());
+        System.out.println("-> Part1: " + part1);
+        
+        String part2 = moveAll(crates, procedures, new CrateMover9001());
+        System.out.println("-> Part2: " + part2);
+
+    }
+
+    private static String moveAll(CrateStacks crateStacks, List<Procedure> procedures, CrateMover crane) {
+
+        // this works on the crateStacks List and moves the crates around
+        procedures.stream()
+            .forEachOrdered(
+                procedure -> crane.move(crateStacks, procedure)
+            );
+
+        // get the first Crate of each CrateStack and turn it into a String. Join all Strings and return. 
+        return crateStacks.getTopCrates();
+    }
+
+    // ====================================================================================
+    // old solution below: delete later
+    // ====================================================================================
     
     /** File Path */
     private static final String FILE_PATH = "app/src/main/resources/aoc2022/Day05/input";
@@ -186,18 +234,4 @@ public class SupplyStacks {
             .collect(Collectors.joining());
     }
 
-    public static void main(String[] args) {
-        
-        System.out.println("\n### Day 5: Supply Stacks ###\n");
-
-        readInput();
-
-        System.out.println(" > Part1: " + getResult(crates1));
-
-        System.out.println(" > Part2: " + getResult(crates2));
-
-        System.out.println();
-
-        return;
-    }
 }
