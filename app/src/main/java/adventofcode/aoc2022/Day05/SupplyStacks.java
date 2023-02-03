@@ -14,17 +14,18 @@ public class SupplyStacks {
         System.out.println("\n### Day 5: Supply Stacks ###\n");
 
         // file path as String
-        final String filepath = "aoc2022/Day05/input";
+        final String filePath = "aoc2022/Day05/input";
 
-        String input = ReadInput.toSingleStringFrom(filepath);
+        String input = ReadInput.toSingleStringFrom(filePath);
 
         String[] split = input.split("\n\n");
 
+        // TODO: make this better (maybe a 3rd parser?)
         List<String> input1 = split[0].lines().toList();
         List<String> input2 = split[1].lines().toList();
 
+        // TODO: better way of copying the CrateStacks.map() than parsing it twice
         CrateStacks crateStacks1 = CrateParser.parse(input1);
-
         CrateStacks crateStacks2 = CrateParser.parse(input1);
 
         List<Procedure> procedures = ProcedureParser.parse(input2);
