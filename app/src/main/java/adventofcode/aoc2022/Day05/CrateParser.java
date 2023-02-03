@@ -10,22 +10,23 @@ import java.util.stream.IntStream;
 
 /**
  * Example input:
- *     [D]    
- * [N] [C]    
+ *     [D]
+ * [N] [C]
  * [Z] [M] [P]
- *  1   2   3 
+ *  1   2   3
  */
 
 public class CrateParser {
 
     private static CrateStacks stacks;
-    
+
     public static CrateStacks parse(List<String> list) {
+
         stacks = new CrateStacks(new HashMap<>());
 
         list.stream()
-            .filter(str -> str.contains("[")) // filter out the (last) String with only the Stack numbering
-            .forEachOrdered(str -> CrateParser.parse(str));
+            .filter(CrateParser::isCrateString)
+            .forEachOrdered(CrateParser::parse);
 
         return stacks;
     }
@@ -40,8 +41,8 @@ public class CrateParser {
 
         // get a List of indices corresponding to the index of the Letter representing a Crate
         List<Integer> indices = IntStream.range(0, string.length())
-                .filter(i -> Character.isLetter(string.codePointAt(i)))
-                .map(i -> (i-1)/4) // reduce the string index to the value of the stack index
+                .filter(i -> isLetterAtIndex(string, i))
+                .map(CrateParser::stringIndexToStackIndex)
                 .boxed()
                 .toList();
 
@@ -57,6 +58,18 @@ public class CrateParser {
         indicesToCrates.entrySet()
             .stream()
             .forEachOrdered(CrateParser::addCrateToStack);
+    }
+
+    private static boolean isCrateString(String str) {
+        return str.contains("[");
+    }
+
+    private static boolean isLetterAtIndex(String string, int i) {
+        return Character.isLetter(string.codePointAt(i));
+    }
+
+    private static int stringIndexToStackIndex(int index) {
+        return 1 + (index / 4);
     }
 
     private static void addCrateToStack(Entry<Integer, Crate> entry) {

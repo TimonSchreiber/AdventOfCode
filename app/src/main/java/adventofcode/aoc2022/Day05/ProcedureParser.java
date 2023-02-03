@@ -8,7 +8,7 @@ import java.util.List;
  * move 3 from 1 to 3
  */
 public class ProcedureParser {
-    
+
     public static List<Procedure> parse(List<String> list) {
         return list.stream().map(ProcedureParser::parse).toList();
     }

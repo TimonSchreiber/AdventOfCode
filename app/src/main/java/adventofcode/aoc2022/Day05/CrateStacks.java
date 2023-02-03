@@ -6,8 +6,12 @@ import java.util.stream.Collectors;
 public record CrateStacks(Map<Integer, CrateStack> map) {
 
     public String getTopCrates() {
+
+        System.out.println("\nCrateStacks.getTopCrates()");
+        this.map.entrySet().stream().forEachOrdered(System.out::println);
         return this.map.values()
                 .stream()
+                .peek(System.out::print)
                 .map(CrateStack::peek)
                 .map(Crate::toString)
                 .collect(Collectors.joining());
