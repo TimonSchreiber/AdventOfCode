@@ -4,12 +4,8 @@ import java.util.Deque;
 
 public record CrateStack(Deque<Crate> stack) {
 
-    public Crate peek() {
-        return this.stack.peek();
-    }
-
-    public Crate pop() {
-        return this.stack.pop();
+    public boolean isEmpty() {
+        return this.stack.isEmpty();
     }
 
     public boolean offerFirst(Crate e) {
@@ -18,5 +14,13 @@ public record CrateStack(Deque<Crate> stack) {
 
     public boolean offerLast(Crate e) {
         return this.stack.offerLast(e);
+    }
+
+    public Crate peek() {
+        return this.stack.peek();
+    }
+
+    public Crate pop() {
+        return this.stack.pop();
     }
 }

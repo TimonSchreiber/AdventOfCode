@@ -1,20 +1,20 @@
 package adventofcode.aoc2022.Day05;
 
-public class CrateMover9000 implements CrateMover {
+/**
+ * The CrateMover9000 reverses the order in which the crates are stacked.
+ * Moving 3 Crates form Stack 1 to 3 means:
+ * 
+ *                       [Z]
+ * [D]                   [N]
+ * [N] [C]           [C] [D]
+ * [Z] [M] [P]       [M] [P]
+ *  1   2   3     1   2   3
+ */
+public final class CrateMover9000 implements CrateMover {
 
     @Override
-    public void move(CrateStacks crateStacks, Procedure procedure) {
-
-        CrateStack origin = crateStacks.get(procedure.from());
-        CrateStack target = crateStacks.get(procedure.to());
-
-        for (int i = 0; i < procedure.count(); i++) {
-
-            Crate crate = origin.pop();
-
-            target.offerFirst(crate);
-        }
-
+    public void offer(CrateStack crane, Crate crate) {
+        crane.offerLast(crate);
     }
 
 }
