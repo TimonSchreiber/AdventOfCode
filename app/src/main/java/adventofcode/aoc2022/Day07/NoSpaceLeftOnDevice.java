@@ -9,7 +9,7 @@ import adventofcode.util.ReadInput;
  */
 public class NoSpaceLeftOnDevice {
 
-    private static final int DISC_SPACE = 70_000_000;
+    private static final int DISC_SPACE   = 70_000_000;
     private static final int NEEDED_SPACE = 30_000_000;
 
     public static void main(String[] args) {

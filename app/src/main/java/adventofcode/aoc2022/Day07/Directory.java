@@ -37,14 +37,16 @@ public class Directory {
      */
     long sumOfDirectoriesWithSizeBelow(long maxSize) {
         long size = this.totalSize();
-        return
-            this.subDirectories.values().stream()
+
+        return this.subDirectories.values().stream()
                 .mapToLong(dir -> dir.sumOfDirectoriesWithSizeBelow(maxSize))
-                .sum() +
-            (size <= maxSize ? size : 0L);
+                .sum()
+            + (size <= maxSize ? size : 0L);
     }
 
     long sizeOfSmallestDirectorieWithSizeBiggerThan(long requiredSpace) {
+        if (requiredSpace <= 0) { return 0; }
+
         long size = this.totalSize();
         long smallestSubDirectory = this.subDirectories.values().stream()
             .mapToLong(dir -> dir.sizeOfSmallestDirectorieWithSizeBiggerThan(requiredSpace))
