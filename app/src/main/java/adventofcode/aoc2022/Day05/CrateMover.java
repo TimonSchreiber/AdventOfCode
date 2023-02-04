@@ -27,7 +27,6 @@ public sealed interface CrateMover permits CrateMover9000, CrateMover9001 {
 
             target.offerFirst(crate);
         }
-
     }
 
 }

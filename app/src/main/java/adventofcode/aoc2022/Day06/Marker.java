@@ -21,4 +21,5 @@ public record Marker(String marker) {
     private long unique() {
         return this.marker.codePoints().distinct().count();
     }
+
 }

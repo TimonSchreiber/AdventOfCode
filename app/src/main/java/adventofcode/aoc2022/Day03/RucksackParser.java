@@ -30,4 +30,5 @@ public class RucksackParser {
         Set<Item> set = line.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
         return new Rucksack(set);
     }
+
 }

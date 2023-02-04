@@ -10,4 +10,5 @@ public record AssignmentPair(SectionRange range1, SectionRange range2) {
     public boolean overlap() {
         return this.range1.overlap(this.range2);
     }
+
 }

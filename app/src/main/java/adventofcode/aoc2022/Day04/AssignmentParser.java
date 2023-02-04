@@ -10,7 +10,7 @@ public class AssignmentParser {
     }
 
     public static AssignmentPair parse(String string) {
-        List<Integer> sections = Arrays.stream(string.split("[,-]"))
+        final List<Integer> sections = Arrays.stream(string.split("[,-]"))
                 .mapToInt(Integer::parseInt)
                 .boxed()
                 .toList();
@@ -20,4 +20,5 @@ public class AssignmentParser {
             new SectionRange(sections.get(2), sections.get(3))
         );
     }
+
 }

@@ -24,9 +24,9 @@ public class NoSpaceLeftOnDevice {
         System.out.println("\n### Day 7: No Space Left On Device ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day07/test";
+        final String filePath = "aoc2022/Day07/input";
 
-        List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
         FileSystem fileSystem = processInput(input);
 
@@ -61,7 +61,7 @@ public class NoSpaceLeftOnDevice {
         input.stream().forEachOrdered(
             str -> {
                 // split string along spaces
-                List<String> line = Arrays.stream(str.split("[ ]")).toList();
+                final List<String> line = Arrays.stream(str.split("[ ]")).toList();
 
                 // check if first String is '$'
                 if (line.get(0).equals(COMMAND)) {

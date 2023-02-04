@@ -3,7 +3,6 @@ package adventofcode.aoc2022.Day06;
 public record Signal(String signal) {
 
     public int indexOfMarker(int markerSize) {
-        
         // check if the input is large enough to contain a marker
         if (this.length() < markerSize) {
             return 0;

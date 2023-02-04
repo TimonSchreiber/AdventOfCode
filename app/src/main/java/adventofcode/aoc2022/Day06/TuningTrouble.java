@@ -24,7 +24,6 @@ public class TuningTrouble {
 
         int part2 = signal.indexOfMarker(START_OF_MESSAGE_SIZE);
         System.out.println("-> Part2: " + part2);
-
     }
 
 }

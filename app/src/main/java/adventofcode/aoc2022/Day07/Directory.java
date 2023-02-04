@@ -8,7 +8,7 @@ import java.util.Map;
 public class Directory {
     String name;
     Directory parent;
-    List<File> files = new ArrayList<>();
+    final List<File> files = new ArrayList<>();
     Map<String, Directory> subDirectories = new HashMap<>();
 
     Directory(String name, Directory parent) {
@@ -64,4 +64,5 @@ public class Directory {
         this.files.forEach(file -> file.print(depth+1));
         this.subDirectories.values().stream().forEachOrdered(dir -> dir.print(depth+1));
     }
+
 }

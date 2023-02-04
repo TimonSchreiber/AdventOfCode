@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 public record CrateStacks(Map<Integer, CrateStack> map) {
 
     public String getTopCrates() {
-
         return this.map.values()
                 .stream()
                 .map(CrateStack::peek)
@@ -21,4 +20,5 @@ public record CrateStacks(Map<Integer, CrateStack> map) {
     public CrateStack get(Object key) {
         return this.map.get(key);
     }
+
 }

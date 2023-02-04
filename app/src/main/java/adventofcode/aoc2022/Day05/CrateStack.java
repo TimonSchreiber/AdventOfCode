@@ -23,4 +23,5 @@ public record CrateStack(Deque<Crate> stack) {
     public Crate pop() {
         return this.stack.pop();
     }
+
 }

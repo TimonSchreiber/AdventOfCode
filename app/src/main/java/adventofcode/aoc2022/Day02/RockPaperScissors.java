@@ -29,32 +29,27 @@ public class RockPaperScissors {
 
         final String fielPath = "aoc2022/Day02/input";
 
-        List<String> input = ReadInput.toListofStringsFrom(fielPath);
+        final List<String> input = ReadInput.toListofStringsFrom(fielPath);
 
-        List<Strategy> strategyGuide = StrategyGuideParser.parse(input);
+        final List<Strategy> strategyGuide = StrategyGuideParser.parse(input);
         
         int part1 = part1(strategyGuide);
         System.out.println(" > Part1: " + part1);
 
         int part2 = part2(strategyGuide);
         System.out.println(" > Part2: " + part2);
-
-        return;
     }
         
     private static int part1(List<Strategy> strategyGuide) {
-        
         return strategyGuide.stream()
                 .mapToInt(Strategy::matchPoints1)
                 .sum();
     }
 
     private static int part2(List<Strategy> strategyGuide) {
-        
         return strategyGuide.stream()
                 .mapToInt(Strategy::matchPoints2)
                 .sum();
     }
-
 
 }

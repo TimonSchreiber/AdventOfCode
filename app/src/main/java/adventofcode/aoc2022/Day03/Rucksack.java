@@ -9,4 +9,5 @@ public record Rucksack(Set<Item> rucksack) {
         this.rucksack.retainAll(rucksack2.rucksack);
         return this.rucksack.stream().findAny().orElseThrow();
     }
+
 }

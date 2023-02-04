@@ -15,16 +15,15 @@ public class CalorieCounting {
 
         final String filePath = "aoc2022/Day01/input";
 
-        String input = ReadInput.toSingleStringFrom(filePath);
+        final String input = ReadInput.toSingleStringFrom(filePath);
 
-        List<Calorie> caloriesPerElf = CalorieParser.parse(input);
+        final List<Calorie> caloriesPerElf = CalorieParser.parse(input);
 
         int part1 = getMostCalories(caloriesPerElf);
         System.out.println("-> Part1: " + part1);
         
         int part2 = sumOfTopN(caloriesPerElf, 3);
         System.out.println("-> Part2: " + part2);
-
     }
 
     private static int getMostCalories(List<Calorie> caloriesPerElf) {

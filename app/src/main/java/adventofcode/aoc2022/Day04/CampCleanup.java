@@ -12,16 +12,15 @@ public class CampCleanup {
         // file path as String
         final String filePath = "aoc2022/Day04/input";
 
-        List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        List<AssignmentPair> assignmentPairs = AssignmentParser.parse(input);
+        final List<AssignmentPair> assignmentPairs = AssignmentParser.parse(input);
 
         long part1 = numberOfAssignmentsFullyContainingOneAnother(assignmentPairs);
         System.out.println("-> Part1: " + part1);
         
         long part2 = numberOfAssignmentsOverlapping(assignmentPairs);
         System.out.println("-> Part2: " + part2);
-
     }
 
    /**
@@ -30,7 +29,6 @@ public class CampCleanup {
     * @return
     */
     private static long numberOfAssignmentsFullyContainingOneAnother(List<AssignmentPair> assignmentPairs) {
-
         return assignmentPairs.stream()
                 .filter(AssignmentPair::fullyContainOneAnother)
                 .count();
@@ -42,7 +40,6 @@ public class CampCleanup {
      * @return
      */
     private static long numberOfAssignmentsOverlapping(List<AssignmentPair> assignmentPairs) {
-
         return assignmentPairs.stream()
                 .filter(AssignmentPair::overlap)
                 .count();

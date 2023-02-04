@@ -34,13 +34,13 @@ public class CrateParser {
     private static void parse(String string) {
 
         // get a List of Crates by filtering for Letters in the String
-        List<Crate> crates = string.codePoints()
+        final List<Crate> crates = string.codePoints()
                 .filter(Character::isLetter)
                 .mapToObj(Crate::new)
                 .toList();
 
         // get a List of indices corresponding to the index of the Letter representing a Crate
-        List<Integer> indices = IntStream.range(0, string.length())
+        final List<Integer> indices = IntStream.range(0, string.length())
                 .filter(i -> isLetterAtIndex(string, i))
                 .map(CrateParser::stringIndexToStackIndex)
                 .boxed()

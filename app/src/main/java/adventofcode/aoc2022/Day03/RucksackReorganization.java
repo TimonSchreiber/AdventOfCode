@@ -15,10 +15,10 @@ public class RucksackReorganization {
 
         final String filePath = "aoc2022/Day03/input";
 
-        List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        List<Compartments> compartments = RucksackParser.parseToCompartments(input);
-        List<Rucksack> rucksacks = RucksackParser.parseToRucksacks(input);
+        final List<Compartments> compartments = RucksackParser.parseToCompartments(input);
+        final List<Rucksack> rucksacks = RucksackParser.parseToRucksacks(input);
 
         int part1 = findCommonItem(compartments);
         System.out.println("-> Part1: " + part1);

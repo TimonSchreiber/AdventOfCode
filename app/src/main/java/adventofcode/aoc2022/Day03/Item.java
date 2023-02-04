@@ -8,4 +8,5 @@ public record Item(int codePoint) {
                     ?  1 - 'a'
                     : 27 - 'A');
     }
+
 }

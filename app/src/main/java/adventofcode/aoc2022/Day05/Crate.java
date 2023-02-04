@@ -6,4 +6,5 @@ public record Crate(int codePoint) {
     public String toString() {
         return Character.toString(this.codePoint);
     }
+
 }
