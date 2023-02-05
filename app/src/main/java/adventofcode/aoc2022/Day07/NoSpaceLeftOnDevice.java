@@ -20,22 +20,21 @@ public class NoSpaceLeftOnDevice {
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        FileSystem fileSystem = FileSystemParser.parse(input);
+        Directory root = FileSystemParser.parse(input);
 
-        System.out.println("\nTotal size: " + fileSystem.root.totalSize());
-
-        long usedSpace = fileSystem.root.totalSize();
+        long usedSpace = root.size();
+        System.out.println("\nUsed space: " + usedSpace);
 
         long requiredSpace = NEEDED_SPACE - (DISC_SPACE - usedSpace);
 
         System.out.println("\nRequired Space: " + requiredSpace + "\n");
 
-        fileSystem.print();
+        root.print(0);
 
-        long part1 = fileSystem.root.sumOfDirectoriesWithSizeBelow(100000L);
+        long part1 = root.sumOfDirectoriesWithSizeBelow(100000L);
         System.out.println("-> Part1: " + part1);
         
-        long part2 = fileSystem.root.sizeOfSmallestDirectorieWithSizeBiggerThan(requiredSpace);
+        long part2 = root.sizeOfSmallestDirectorieWithSizeBiggerThan(requiredSpace);
         System.out.println("-> Part2: " + part2);
     }
 
