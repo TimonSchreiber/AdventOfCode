@@ -15,13 +15,13 @@ public class FileSystemParser {
     private final static String LIST             = "ls";
     private final static String DIRECTORY        = "dir";
     
-    public static FileSystem parse(List<String> list) {
+    public static Directory parse(List<String> list) {
         fileSystem = new FileSystem();
 
         list.stream()
             .forEachOrdered(FileSystemParser::parse);
 
-        return fileSystem;
+        return fileSystem.root;
     }
 
     private static void parse(String string) {
@@ -46,8 +46,11 @@ public class FileSystemParser {
     }
 
     private static void parseDirectory(final List<String> line) {
-        // the String behind 'dir' is the directoy name
-        fileSystem.addDirectory(line.get(1));
+        // the String behind 'dir' is the directory name
+        String name = line.get(1);
+
+        Directory dir = new Directory(name, fileSystem.current);
+        fileSystem.add(dir);
     }
 
     private static void parseFile(final List<String> line) {
@@ -56,7 +59,7 @@ public class FileSystemParser {
         String fileName = line.get(1);
     
         File file = new File(fileSize, fileName);
-        fileSystem.addFile(file);
+        fileSystem.add(file);
     }
 
     private static void parseChangeDirectory(final List<String> line) {
