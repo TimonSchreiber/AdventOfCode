@@ -17,7 +17,7 @@ public class RopeBridge {
 
         List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        List<Motion> motions = processInput(input);
+        List<Motion> motions = MotionParser.parse(input);
 
         int part1 = numberOfVisitedPositions(motions, 2);
         System.out.println("-> Part1: " + part1);
@@ -29,15 +29,6 @@ public class RopeBridge {
     private static int numberOfVisitedPositions(List<Motion> motions, int ropeLength) {
         Position start = new Position(0, 0);
         return new Rope(start, ropeLength).numberOfVisitedPositions(motions);
-    }
-
-    private static List<Motion> processInput(List<String> input) {
-
-        List<Motion> list = input.stream()
-            .map(Motion::new)
-            .toList();
-
-        return list;
     }
 
 }
