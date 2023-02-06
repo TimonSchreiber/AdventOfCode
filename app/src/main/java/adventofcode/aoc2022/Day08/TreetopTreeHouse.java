@@ -18,8 +18,6 @@ public class TreetopTreeHouse {
 
         Forest forest = ForestParser.parse(input);
 
-        forest.print();
-
         int part1 = forest.countVisibleTrees();
         System.out.println("-> Part1: " + part1);
         
