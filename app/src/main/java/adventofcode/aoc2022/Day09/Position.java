@@ -3,7 +3,7 @@ package adventofcode.aoc2022.Day09;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/** TODO: combine all the Position classes into a single class. Maybe util.geometry.Point2D;
  * Position
  */
 public record Position(int x, int y) implements Comparable<Position> {
