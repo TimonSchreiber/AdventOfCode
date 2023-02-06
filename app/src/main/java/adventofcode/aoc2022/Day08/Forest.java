@@ -11,7 +11,7 @@ public record Forest(List<TreeRow> trees) {
 
     record Position(int x, int y){}
 
-    /**
+    /** TODO: clean up this method, it is WAAAAY to long. DRY. Maybe use an enum for Directions.
      * Count from each side of this {@code Forest} which {@code Tree}s can be seen.
      * @return  the number of {@code Tree}s which can be seen from the outside.
      */
@@ -101,7 +101,7 @@ public record Forest(List<TreeRow> trees) {
         return visibleTrees.size();
     }
 
-    /**
+    /** TODO: maybe use an enum for Directions
      * Find the highest Scenic Score in this {@code Forest}.
      * @return  The highest Scenic Score in this {@code Forest}.
      */
