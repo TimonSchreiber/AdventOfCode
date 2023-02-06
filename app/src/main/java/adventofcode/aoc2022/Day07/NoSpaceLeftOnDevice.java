@@ -22,16 +22,15 @@ public class NoSpaceLeftOnDevice {
 
         Directory root = FileSystemParser.parse(input);
 
+        root.print(0);
+
         long usedSpace = root.size();
         System.out.println("\nUsed space: " + usedSpace);
 
         long requiredSpace = NEEDED_SPACE - (DISC_SPACE - usedSpace);
-
         System.out.println("\nRequired Space: " + requiredSpace + "\n");
 
-        root.print(0);
-
-        long part1 = root.sumOfDirectoriesWithSizeBelow(100000L);
+        long part1 = root.sumOfDirectoriesWithSizeBelow(100_000);
         System.out.println("-> Part1: " + part1);
         
         long part2 = root.sizeOfSmallestDirectorieWithSizeBiggerThan(requiredSpace);
