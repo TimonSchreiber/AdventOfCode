@@ -8,7 +8,7 @@ import java.util.List;
  */
 public record Position(int x, int y) implements Comparable<Position> {
 
-    public Position move(Direction direction) {
+    public Position moveTo(Direction direction) {
         return switch (direction) {
             case U -> new Position(this.x + 0, this.y + 1);   
             case D -> new Position(this.x + 0, this.y - 1);     
@@ -25,7 +25,7 @@ public record Position(int x, int y) implements Comparable<Position> {
         return Math.sqrt(deltaXSquared + deltaYSquared);
     }
 
-    public List<Direction> towards(Position other) {
+    public List<Direction> getDirections(Position other) {
         List<Direction> vec = new ArrayList<>();
         int deltaX = other.x - this.x;
         int deltaY = other.y - this.y;
