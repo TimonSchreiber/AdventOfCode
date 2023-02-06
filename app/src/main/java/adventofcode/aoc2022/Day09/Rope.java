@@ -66,7 +66,9 @@ public class Rope {
             Position tail = this.rope.get(i);
             if (head.distance(tail) >= 1.5) {
                 List<Direction> directions = tail.getDirections(head);
-                directions.stream().forEach(tail::moveTo);
+                for (Direction dir : directions) {
+                    tail = tail.moveTo(dir);
+                }
                 this.rope.set(i, tail);
             }
         }
