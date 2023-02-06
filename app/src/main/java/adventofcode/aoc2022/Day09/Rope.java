@@ -55,7 +55,7 @@ public class Rope {
 
     // move the head of this Rope to a new Position
     private void move(Direction direction) {
-        this.rope.set(0, this.head().move(direction));
+        this.rope.set(0, this.head().moveTo(direction));
         moveTail();
     }
 
@@ -65,10 +65,8 @@ public class Rope {
             Position head = this.rope.get(i-1);
             Position tail = this.rope.get(i);
             if (head.distance(tail) >= 1.5) {
-                List<Direction> directions = tail.towards(head);
-                for (Direction dir : directions) {
-                    tail = tail.move(dir);
-                }
+                List<Direction> directions = tail.getDirections(head);
+                directions.stream().forEach(tail::moveTo);
                 this.rope.set(i, tail);
             }
         }
@@ -76,8 +74,8 @@ public class Rope {
 
     // print the unique Positions
     private void printPositions(Set<Position> uniquePositions) {
-        int maxX = uniquePositions.stream().mapToInt(p -> p.x()).max().orElse(0);
-        int maxY = uniquePositions.stream().mapToInt(p -> p.y()).max().orElse(0);
+        int maxX = uniquePositions.stream().mapToInt(Position::x).max().orElse(0);
+        int maxY = uniquePositions.stream().mapToInt(Position::y).max().orElse(0);
 
         System.out.println("\nmax X and max Y value: " + maxX + ", " + maxY);
 
