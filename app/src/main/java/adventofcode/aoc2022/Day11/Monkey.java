@@ -17,7 +17,7 @@ public record Monkey(
     Deque<Integer> items,
     Function<Integer, Integer> operation,
     Predicate<Integer> test,
-    final Map<Boolean, Integer> throwTo
+    Map<Boolean, Integer> throwTo
 ){
     public Monkey(List<String> note) {
         this(
@@ -33,17 +33,20 @@ public record Monkey(
         return !this.items.isEmpty();
     }
 
-    public ThrowTo inspectAndThrow() {
-        Integer item = this.items.pollFirst();                  // get first Item
-        item = this.operation.apply(item);                      // apply operation
-        item /= 3;                                              // divide by 3
-        boolean testResult = this.test.test(item);              // test where to throw
-        return new ThrowTo(item, this.throwTo.get(testResult));   // return new Throw with this item and the target monkeys index
+    public ThrowItemTo inspectAndThrow() {
+        Integer item = this.items.pollFirst();                      // get first Item
+        item = this.operation.apply(item);                          // apply operation
+        item /= 3;                                                  // divide by 3
+        boolean testResult = this.test.test(item);                  // test where to throw
+        return new ThrowItemTo(item, this.throwTo.get(testResult)); // return new Throw with this item and the target monkeys index
     }
 
     public void recieveItem(Integer item) {
         this.items.addLast(item);
     }
+
+    // -------------------------------------------------------------------------
+    // static methods for parsing the input
 
     private static Deque<Integer> fillDeque(String string) {
         Pattern integerPatter = Pattern.compile("-?\\d+");  // example: Starting items: 79, 98
@@ -88,7 +91,6 @@ public record Monkey(
                 default -> throw new IllegalArgumentException("Invalid Input " + string);
             };
         }
-
     }
 
     private static Predicate<Integer> parsePredicate(String string) {
