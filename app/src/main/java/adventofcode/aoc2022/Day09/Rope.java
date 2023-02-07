@@ -42,7 +42,7 @@ public class Rope {
     public int numberOfVisitedPositions(List<Motion> motions) {
         final Set<Point2D> uniquePoint2Ds = new HashSet<>();
         uniquePoint2Ds.add(this.tail());
-        
+
         motions.stream()
             .forEachOrdered(
                 motion -> {
@@ -58,7 +58,7 @@ public class Rope {
 
     // move the head of this Rope to a new Point2D
     private void move(Direction direction) {
-        this.rope.set(0, this.head().moveTo(direction));
+        this.rope.set(0, this.head().moveTowards(direction));
         moveTail();
     }
 
@@ -68,43 +68,10 @@ public class Rope {
             Point2D head = this.rope.get(i-1);
             Point2D tail = this.rope.get(i);
             if (head.distance(tail) >= 1.5) {
-                final List<Direction> directions = tail.getDirections(head);
-                for (Direction dir : directions) {
-                    tail = tail.moveTo(dir);
-                }
+                tail = tail.moveClose(head);
                 this.rope.set(i, tail);
             }
         }
     }
 
-    // print the unique Point2Ds
-    private void printPoint2Ds(Set<Point2D> uniquePoint2Ds) {
-        int maxX = uniquePoint2Ds.stream().mapToInt(Point2D::x).max().orElse(0);
-        int maxY = uniquePoint2Ds.stream().mapToInt(Point2D::y).max().orElse(0);
-
-        System.out.println("\nmax X and max Y value: " + maxX + ", " + maxY);
-
-        for (int i = 15; i >= -5; i--) {
-            for (int j = -11; j < 15; j++) {
-                String str = uniquePoint2Ds.contains(new Point2D(j, i)) ? "#" : ".";
-                System.out.print(str);
-            }
-            System.out.println();
-        }
-    }
-
-    // print the Rope
-    private void print() {
-        for (int i = 15; i >= -5; i--) {
-            for (int j = -11; j < 15; j++) {
-
-                Point2D pos = new Point2D (j, i);
-                int index = this.rope.indexOf(pos);
-                System.out.print(index == -1 ? "." : ((index == 0) ? "H" : String.valueOf(index)));
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-    
 }

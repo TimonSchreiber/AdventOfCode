@@ -7,7 +7,8 @@ import java.util.List;
  * Point in 2D.
  */
 public record Point2D(int x, int y) implements Comparable<Point2D> {
-    public Point2D moveTo(Direction direction) {
+
+    public Point2D moveTowards(Direction direction) {
         return switch (direction) {
             case UP    -> new Point2D(this.x + 0, this.y + 1);   
             case DOWN  -> new Point2D(this.x + 0, this.y - 1);     
@@ -24,8 +25,7 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
         return Math.sqrt(deltaXSquared + deltaYSquared);
     }
 
-    // TODO: why does this return a List<Direction> and not the new Point2D directly?
-    public List<Direction> getDirections(Point2D other) {
+    public Point2D moveClose(Point2D other) {
         final List<Direction> vec = new ArrayList<>();
         int deltaX = other.x - this.x;
         int deltaY = other.y - this.y;
@@ -37,7 +37,13 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
             vec.add((deltaY > 0) ? Direction.UP : Direction.DOWN);
         }
 
-        return vec;
+        Point2D tmp = new Point2D(this.x, this.y);
+
+        for (Direction direction : vec) {
+            tmp = tmp.moveTowards(direction);
+        }
+
+        return tmp;
     }
 
     @Override
