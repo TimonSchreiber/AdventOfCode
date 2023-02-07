@@ -16,23 +16,15 @@ public record Forest(List<TreeRow> trees) {
      * @return  the number of {@code Tree}s which can be seen from the outside.
      */
     public int countVisibleTrees() {
-
-        int iDim = this.height();
-        int jDim = this.width();
-        Set<Position> visibleTrees = new HashSet<>();
+        final Set<Position> visibleTrees = new HashSet<>();
 
         // check left to right
-        for (int i = 0 ; i < iDim; i++) {
-            int maxHeight = -1;
-            for (int j = 0; j < jDim; j++) {
-                int currentHeight = this.get(i, j).height();
+        for (int i = 0 ; i < this.height(); i++) {
+            int tallestTree = -1;
+            for (int j = 0; j < this.trees.get(i).size(); j++) {
+                tallestTree = checkVisibility(visibleTrees, i, j, tallestTree);
 
-                if (currentHeight > maxHeight) {
-                    maxHeight = currentHeight;
-                    visibleTrees.add(new Position(j, i));
-                }
-
-                if (maxHeight >= Tree.MAX_HEIGHT) {
+                if (tallestTree >= Tree.MAX_HEIGHT) {
                     // the max tree height is reached.
                     // No need to look further down this row/column
                     break;
@@ -41,17 +33,12 @@ public record Forest(List<TreeRow> trees) {
         }
 
         // check right to left
-        for (int i = iDim-1 ; i >= 0; i--) {
-            int maxHeight = -1;
-            for (int j = jDim-1; j >= 0; j--) {
-                int currentHeight = this.get(i, j).height();
+        for (int i = this.height()-1 ; i >= 0; i--) {
+            int tallestTree = -1;
+            for (int j = this.trees.get(i).size()-1; j >= 0; j--) {
+                tallestTree = checkVisibility(visibleTrees, i, j, tallestTree);
 
-                if (currentHeight > maxHeight) {
-                    maxHeight = currentHeight;
-                    visibleTrees.add(new Position(j, i));
-                }
-
-                if (maxHeight >= Tree.MAX_HEIGHT) {
+                if (tallestTree >= Tree.MAX_HEIGHT) {
                     // the max tree height is reached.
                     // No need to look further down this row/column
                     break;
@@ -60,17 +47,12 @@ public record Forest(List<TreeRow> trees) {
         }
         
         // check top to bottom
-        for (int i = 0 ; i < iDim; i++) {
-            int maxHeight = -1;
-            for (int j = 0; j < jDim; j++) {
-                int currentHeight = this.get(j, i).height();
+        for (int i = 0 ; i < this.height(); i++) {
+            int tallestTree = -1;
+            for (int j = 0; j < this.trees.get(i).size(); j++) {
+                tallestTree = checkVisibility(visibleTrees, j, i, tallestTree);
 
-                if (currentHeight > maxHeight) {
-                    maxHeight = currentHeight;
-                    visibleTrees.add(new Position(i, j));
-                }
-
-                if (maxHeight >= Tree.MAX_HEIGHT) {
+                if (tallestTree >= Tree.MAX_HEIGHT) {
                     // the max tree height is reached.
                     // No need to look further down this row/column
                     break;
@@ -79,17 +61,12 @@ public record Forest(List<TreeRow> trees) {
         }
 
         // check bottom to top
-        for (int i = iDim-1 ; i >= 0; i--) {
-            int maxHeight = -1;
-            for (int j = jDim-1; j >= 0; j--) {
-                int currentHeight = this.get(j, i).height();
+        for (int i = this.height()-1 ; i >= 0; i--) {
+            int tallestTree = -1;
+            for (int j = this.trees.get(i).size()-1; j >= 0; j--) {
+                tallestTree = checkVisibility(visibleTrees, j, i, tallestTree);
 
-                if (currentHeight > maxHeight) {
-                    maxHeight = currentHeight;
-                    visibleTrees.add(new Position(i, j));
-                }
-
-                if (maxHeight >= Tree.MAX_HEIGHT) {
+                if (tallestTree >= Tree.MAX_HEIGHT) {
                     // the max tree height is reached.
                     // No need to look further down this row/column
                     break;
@@ -101,18 +78,37 @@ public record Forest(List<TreeRow> trees) {
         return visibleTrees.size();
     }
 
+    /**
+     * Check if the {@code Tree} at i, j is visible compared to the current
+     * maxHeight. If it is visible, add it to the {@code visibleTrees}
+     * {@code Set}.
+     *
+     * @param visibleTrees  A Set with the Positions of all visible Trees
+     * @param i             The index for the TreeRow in this Forest
+     * @param j             The index for the Tree in the TreeRow
+     * @param tallestTree   Height of the tallest Tree so far
+     * @return              The height of the new tallest Tree
+     */
+    private int checkVisibility(Set<Position> visibleTrees, int i, int j, int tallestTree) {
+        int currentHeight = this.get(i, j).height();
+
+        if (currentHeight > tallestTree) {
+            tallestTree = currentHeight;
+            visibleTrees.add(new Position(j, i));
+        }
+        return tallestTree;
+    }
+
     /** TODO: maybe use an enum for Directions
      * Find the highest Scenic Score in this {@code Forest}.
      * @return  The highest Scenic Score in this {@code Forest}.
      */
     public int highestScenicScore() {
         
-        int iDim = this.height();
-        int jDim = this.width();
         int highestScore = -1;
 
-        for (int i = 0; i < iDim; i++) {
-            for (int j = 0; j < jDim; j++) {
+        for (int i = 0; i < this.height(); i++) {
+            for (int j = 0; j < this.trees.get(i).size(); j++) {
                 int left  = checkView(i, j, 0, -1);
                 int right = checkView(i, j, 0,  1);
                 int up    = checkView(i, j,-1,  0);
@@ -128,12 +124,10 @@ public record Forest(List<TreeRow> trees) {
     /** calculate the Scenic Score of this {@code Tree} */
     private int checkView(int oldI, int oldJ, int deltaI, int deltaJ) {
         int height = this.get(oldI, oldJ).height();
-        int iDim = this.height();
-        int jDim = this.width();
         int newI = oldI + deltaI;
         int newJ = oldJ + deltaJ;
         int res = 0;
-        while ((newI >= 0) && (newI < iDim) && (newJ >= 0) && (newJ < jDim)) {
+        while (isInForest(newI, newJ)) {
             res++;
             if (this.get(newI, newJ).height() >= height) {
                 return res;
@@ -149,14 +143,17 @@ public record Forest(List<TreeRow> trees) {
         return this.trees.size();
     }
 
-    /** the max number of {@code Tree}s in a {@code TreeRow} in this {@code Forest} */
-    private int width() {
-        return this.trees.stream().mapToInt(TreeRow::size).max().orElseThrow();
-    }
-
     /** get a a {@code Tree} by its coordinates */
     private Tree get(int i, int j) {
         return this.trees.get(i).get(j);
+    }
+
+    /** check if the the Coordinates are inside this Forest. */
+    private boolean isInForest(int newI, int newJ) {
+        return (newI >= 0)
+          && (newI < this.height())
+          && (newJ >= 0)
+          && (newJ < this.trees.get(newI).size());
     }
 
     /**
