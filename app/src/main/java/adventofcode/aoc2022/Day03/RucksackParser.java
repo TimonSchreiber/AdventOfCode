@@ -21,13 +21,13 @@ public class RucksackParser {
         int middle = line.length() / 2;
         String s1 = line.substring(0, middle);
         String s2 = line.substring(middle);
-        Set<Item> set1 = s1.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
-        Set<Item> set2 = s2.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
+        final Set<Item> set1 = s1.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
+        final Set<Item> set2 = s2.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
         return new Compartments(set1, set2);
     }
 
     private static Rucksack parseToRucksack(String line) {
-        Set<Item> set = line.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
+        final Set<Item> set = line.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
         return new Rucksack(set);
     }
 

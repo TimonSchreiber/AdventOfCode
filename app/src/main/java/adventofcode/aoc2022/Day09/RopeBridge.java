@@ -15,9 +15,9 @@ public class RopeBridge {
         // file path as String
         final String filePath = "aoc2022/Day09/input";
 
-        List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        List<Motion> motions = MotionParser.parse(input);
+        final List<Motion> motions = MotionParser.parse(input);
 
         int part1 = numberOfVisitedPositions(motions, 2);
         System.out.println("-> Part1: " + part1);

@@ -16,9 +16,9 @@ public class CathodeRayTube {
         // file path as String
         final String filePath = "aoc2022/Day10/input";
         
-        List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListofStringsFrom(filePath);
         
-        List<Instruction> instructions = InstructionParser.parse(input);
+        final List<Instruction> instructions = InstructionParser.parse(input);
 
         CPU cpu = new CPU(instructions);
         cpu.runInstructions();

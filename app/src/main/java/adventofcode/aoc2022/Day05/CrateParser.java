@@ -47,12 +47,15 @@ public class CrateParser {
                 .toList();
 
         // check if crates and indices have the same size
-        if (crates.size() != indices.size()) { throw new IllegalStateException(); }
+        if (crates.size() != indices.size()) {
+            throw new IllegalStateException();
+        }
 
         // zip both Lists into a map
-        Map<Integer, Crate> indicesToCrates = IntStream.range(0, crates.size())
-            .boxed()
-            .collect(Collectors.toMap(indices::get, crates::get));
+        final Map<Integer, Crate> indicesToCrates =
+            IntStream.range(0, crates.size())
+                .boxed()
+                .collect(Collectors.toMap(indices::get, crates::get));
 
         // for each entry in the map:
         indicesToCrates.entrySet()

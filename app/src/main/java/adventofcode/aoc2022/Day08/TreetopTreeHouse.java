@@ -14,7 +14,7 @@ public class TreetopTreeHouse {
         // file path as String
         final String filePath = "aoc2022/Day08/input";
 
-        List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
         Forest forest = ForestParser.parse(input);
 

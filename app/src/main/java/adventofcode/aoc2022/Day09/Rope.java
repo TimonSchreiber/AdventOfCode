@@ -37,7 +37,7 @@ public class Rope {
     // run through a lost of Motions and track all the unique positions the Tail visits.
     // return the number of unique Positions
     public int numberOfVisitedPositions(List<Motion> motions) {
-        Set<Position> uniquePositions = new HashSet<>();
+        final Set<Position> uniquePositions = new HashSet<>();
         uniquePositions.add(this.tail());
         
         motions.stream()
@@ -65,7 +65,7 @@ public class Rope {
             Position head = this.rope.get(i-1);
             Position tail = this.rope.get(i);
             if (head.distance(tail) >= 1.5) {
-                List<Direction> directions = tail.getDirections(head);
+                final List<Direction> directions = tail.getDirections(head);
                 for (Direction dir : directions) {
                     tail = tail.moveTo(dir);
                 }

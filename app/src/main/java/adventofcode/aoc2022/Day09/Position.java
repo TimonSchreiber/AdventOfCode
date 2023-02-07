@@ -25,8 +25,9 @@ public record Position(int x, int y) implements Comparable<Position> {
         return Math.sqrt(deltaXSquared + deltaYSquared);
     }
 
+    // TODO: why does this return a List<Direction> and not the new Position directly?
     public List<Direction> getDirections(Position other) {
-        List<Direction> vec = new ArrayList<>();
+        final List<Direction> vec = new ArrayList<>();
         int deltaX = other.x - this.x;
         int deltaY = other.y - this.y;
 
