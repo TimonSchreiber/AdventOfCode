@@ -9,13 +9,15 @@ public class CalorieParser {
 
     public static List<Calorie> parse(String input) {
         return Arrays.stream(input.split(DOUBLE_LINE_BREAK))
-                .map(
-                    str -> str.lines()
-                        .mapToInt(Integer::parseInt)
-                        .sum()
-                )
+                .map(CalorieParser::sumOfGroup)
                 .map(Calorie::new)
                 .toList();
+    }
+
+    private static int sumOfGroup(String string) {
+        return string.lines()
+                .mapToInt(Integer::parseInt)
+                .sum();
     }
 
 }
