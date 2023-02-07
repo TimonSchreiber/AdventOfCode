@@ -4,19 +4,19 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import adventofcode.util.geometry.Point2D;
+
 /**
  * A 2D-Grid of {@code Tree}s.
  */
 public record Forest(List<TreeRow> trees) {
-
-    record Position(int x, int y){}
 
     /** TODO: clean up this method, it is WAAAAY to long. DRY. Maybe use an enum for Directions.
      * Count from each side of this {@code Forest} which {@code Tree}s can be seen.
      * @return  the number of {@code Tree}s which can be seen from the outside.
      */
     public int countVisibleTrees() {
-        final Set<Position> visibleTrees = new HashSet<>();
+        final Set<Point2D> visibleTrees = new HashSet<>();
 
         // check left to right
         for (int i = 0 ; i < this.height(); i++) {
@@ -74,7 +74,7 @@ public record Forest(List<TreeRow> trees) {
             }
         }
 
-        // return the number of (unique) Positions in the Set.
+        // return the number of (unique) Point2Ds in the Set.
         return visibleTrees.size();
     }
 
@@ -83,18 +83,18 @@ public record Forest(List<TreeRow> trees) {
      * maxHeight. If it is visible, add it to the {@code visibleTrees}
      * {@code Set}.
      *
-     * @param visibleTrees  A Set with the Positions of all visible Trees
+     * @param visibleTrees  A Set with the Point2Ds of all visible Trees
      * @param i             The index for the TreeRow in this Forest
      * @param j             The index for the Tree in the TreeRow
      * @param tallestTree   Height of the tallest Tree so far
      * @return              The height of the new tallest Tree
      */
-    private int checkVisibility(Set<Position> visibleTrees, int i, int j, int tallestTree) {
+    private int checkVisibility(Set<Point2D> visibleTrees, int i, int j, int tallestTree) {
         int currentHeight = this.get(i, j).height();
 
         if (currentHeight > tallestTree) {
             tallestTree = currentHeight;
-            visibleTrees.add(new Position(j, i));
+            visibleTrees.add(new Point2D(j, i));
         }
         return tallestTree;
     }
