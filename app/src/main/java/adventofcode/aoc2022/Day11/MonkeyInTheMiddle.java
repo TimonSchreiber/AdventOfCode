@@ -44,8 +44,8 @@ public class MonkeyInTheMiddle {
             int index = 0;
             for (Monkey monkey : monkeys) {
                 while (monkey.hasItems()) {
-                    ThrowTo throwTo = monkey.inspectAndThrow();
-                    monkeys.get(throwTo.target()).recieveItem(throwTo.item());
+                    ThrowItemTo throwItemTo = monkey.inspectAndThrow();
+                    monkeys.get(throwItemTo.target()).recieveItem(throwItemTo.item());
                     inspections[index]++;
                 }
                 index++;
