@@ -19,6 +19,9 @@ public record Monkey(
     Predicate<Integer> test,
     Map<Boolean, Integer> throwTo
 ){
+
+    private static long LIMIT =  (Long.MAX_VALUE / 10) * 9;
+
     public Monkey(List<String> note) {
         this(
             fillDeque(note.get(1)),
@@ -28,15 +31,21 @@ public record Monkey(
         );
     }
 
-    // Forwarding
     public boolean hasItems() {
         return !this.items.isEmpty();
     }
 
-    public ThrowItemTo inspectAndThrow() {
+    public ThrowItemTo inspectAndThrow(int reliefDivisor, int modulo) {
         Integer item = this.items.pollFirst();                      // get first Item
         item = this.operation.apply(item);                          // apply operation
-        item /= 3;                                                  // divide by 3
+
+        // rework
+        if (item >= LIMIT || item <= 0) {System.out.println("Almost overflowed!");}
+        if (modulo != 0) {
+            item %= modulo;
+        }
+        item /= reliefDivisor;                                               // reduce worry level
+        // until here
         boolean testResult = this.test.test(item);                  // test where to throw
         return new ThrowItemTo(item, this.throwTo.get(testResult)); // return new Throw with this item and the target monkeys index
     }

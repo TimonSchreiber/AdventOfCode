@@ -16,39 +16,49 @@ public class MonkeyInTheMiddle {
         System.out.println("\n### Day 11: Monkey in the Middle ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day11/input";
+        final String filePath = "aoc2022/Day11/test";
+        int reduce = (13*17*19*23);         // test input
+        // int reduce = (2*3*5*7*11*13*17*19);  // real input
 
-        String input = ReadInput.toSingleStringFrom(filePath);
+        final String input = ReadInput.toSingleStringFrom(filePath);
 
-        final List<Monkey> monkeys = MonkeyParser.parse(input);
+        List<Monkey> monkeys;
+        int reliefDivisor;
+        List<Long> inspections;
 
-        // monkeys.stream()
-        //     .forEachOrdered(System.out::println);
-
-        final List<Integer> inspections = numberOfInspectedItems(monkeys);
-
-        int part1 = twoMostActiveMonkeys(inspections);
+        // Part 1
+        monkeys = MonkeyParser.parse(input);
+        reliefDivisor = 3;
+        inspections = numberOfInspectedItems(monkeys, 20, reliefDivisor, 0);
+        long part1 = twoMostActiveMonkeys(inspections);
         System.out.println("-> Part1: " + part1);
 
-        // int part2 = part2(inspections);
-        // System.out.println("-> Part2: " + part2);
-
+        // Part 2
+        monkeys = MonkeyParser.parse(input);
+        reliefDivisor = reduce;
+        inspections = numberOfInspectedItems(monkeys, 10_000, 1, reduce);
+        long part2 = twoMostActiveMonkeys(inspections);
+        System.out.println("-> Part2: " + part2);
     }
 
-    private static List<Integer> numberOfInspectedItems(List<Monkey> monkeys) {
-        int[] inspections = new int[monkeys.size()];
+    private static List<Long> numberOfInspectedItems(List<Monkey> monkeys, int numberOfRounds, int reliefDivisor, int modulo) {
+        long[] inspections = new long[monkeys.size()];
 
-        final int numberOfRounds = 20;
-
-        for (int i = 0; i < numberOfRounds; i++) {
+        for (int i = 1; i <= numberOfRounds; i++) {
             int index = 0;
             for (Monkey monkey : monkeys) {
                 while (monkey.hasItems()) {
-                    ThrowItemTo throwItemTo = monkey.inspectAndThrow();
+                    ThrowItemTo throwItemTo = monkey.inspectAndThrow(reliefDivisor, modulo);
                     monkeys.get(throwItemTo.target()).recieveItem(throwItemTo.item());
                     inspections[index]++;
                 }
                 index++;
+            }
+            if (i == 1 || i == 20 || (i%1_000) == 0) {
+                System.out.println("\n== After round " + (i) + " ==");
+                for (int j = 0; j < inspections.length; j++) {
+                    System.out.println("Monkey " + j + " inspected items " + inspections[j] + "\ttimes.");
+                }
             }
         }
 
@@ -57,11 +67,11 @@ public class MonkeyInTheMiddle {
             .toList();
     }
 
-    private static int twoMostActiveMonkeys(List<Integer> inspections) {
+    private static long twoMostActiveMonkeys(List<Long> inspections) {
         return inspections.stream()
             .sorted(Comparator.reverseOrder())
             .limit(2)
-            .reduce(1, (a,b) -> a*b);
+            .reduce(1L, (a,b) -> a*b);
     }
 
 }
