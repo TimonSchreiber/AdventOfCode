@@ -2,7 +2,8 @@ package adventofcode.aoc2022.Day09;
 
 import java.util.List;
 
-import adventofcode.util.ReadInput;
+import adventofcode.util.IO.ReadInput;
+import adventofcode.util.geometry.Point2D;
 
 /**
  * https://adventofcode.com/2022/day/9
@@ -27,7 +28,7 @@ public class RopeBridge {
     }
 
     private static int numberOfVisitedPositions(List<Motion> motions, int ropeLength) {
-        Position start = new Position(0, 0);
+        Point2D start = new Point2D(0, 0);
         return new Rope(start, ropeLength).numberOfVisitedPositions(motions);
     }
 

@@ -2,7 +2,7 @@ package adventofcode.aoc2022.Day02;
 
 import java.util.List;
 
-import adventofcode.util.ReadInput;
+import adventofcode.util.IO.ReadInput;
 
 /** TODO: this Day needs some improvement: Maybe make the Shapes an Enum and get the values form there.
  * https://adventofcode.com/2022/day/2

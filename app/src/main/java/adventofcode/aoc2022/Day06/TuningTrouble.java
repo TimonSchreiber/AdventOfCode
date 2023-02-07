@@ -1,6 +1,6 @@
 package adventofcode.aoc2022.Day06;
 
-import adventofcode.util.ReadInput;
+import adventofcode.util.IO.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/6

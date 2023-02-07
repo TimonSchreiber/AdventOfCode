@@ -3,7 +3,7 @@ package adventofcode.aoc2022.Day01;
 import java.util.Comparator;
 import java.util.List;
 
-import adventofcode.util.ReadInput;
+import adventofcode.util.IO.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/1

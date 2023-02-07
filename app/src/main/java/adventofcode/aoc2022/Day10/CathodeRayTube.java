@@ -2,7 +2,7 @@ package adventofcode.aoc2022.Day10;
 
 import java.util.List;
 
-import adventofcode.util.ReadInput;
+import adventofcode.util.IO.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/10

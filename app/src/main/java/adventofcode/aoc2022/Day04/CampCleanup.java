@@ -2,7 +2,7 @@ package adventofcode.aoc2022.Day04;
 
 import java.util.List;
 
-import adventofcode.util.ReadInput;
+import adventofcode.util.IO.ReadInput;
 
 public class CampCleanup {
     
