@@ -3,7 +3,7 @@ package adventofcode.aoc2022.Day11;
 import java.util.List;
 import java.util.function.LongUnaryOperator;
 
-import adventofcode.util.ReadInput;
+import adventofcode.util.IO.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/11

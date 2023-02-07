@@ -1,4 +1,4 @@
-package adventofcode.util;
+package adventofcode.util.IO;
 
 import java.io.IOException;
 import java.nio.file.Files;
