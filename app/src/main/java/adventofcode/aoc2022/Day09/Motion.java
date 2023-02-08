@@ -17,7 +17,7 @@ public record Motion(Direction direction, int steps) {
 
     // a constructor taking in a single string in the format 'D S' with D=Direction and S=Steps'
     public Motion(String line) {
-        this(line.split("[ ]"));
+        this(line.split(" "));
     }
 
 }

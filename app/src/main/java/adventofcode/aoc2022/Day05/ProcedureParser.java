@@ -14,7 +14,7 @@ public class ProcedureParser {
     }
 
     private static Procedure parse(String string) {
-        final List<Integer> procedureElements = Arrays.stream(string.split("[ ]"))
+        final List<Integer> procedureElements = Arrays.stream(string.split(" "))
             .filter(i -> ProcedureParser.isNumeric(i))
             .mapToInt(Integer::parseInt)
             .boxed()

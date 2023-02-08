@@ -54,14 +54,14 @@ public class MonkeyParser {
     }
 
     private static List<Item> parseItems(String string) {
-        return Arrays.stream(string.split("[, ]+"))
+        return Arrays.stream(string.split(", "))
             .mapToLong(Long::parseLong)
             .mapToObj(Item::new)
             .toList();
     }
 
     private static LongUnaryOperator parseOperation(String string) {
-        String[] arr = string.split("[ ]");
+        String[] arr = string.split(" ");
 
         if ("* old".equals(string)) {
             return old -> old * old;

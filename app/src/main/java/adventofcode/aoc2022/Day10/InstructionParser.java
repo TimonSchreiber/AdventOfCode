@@ -17,7 +17,7 @@ public class InstructionParser {
     }
 
     private static Instruction parse(String line) {
-        String[] arr = line.split("[ ]"); // split at every space
+        String[] arr = line.split(" "); // split at every space
 
         return switch (arr[0]) {
             case NOOP -> new NoOp();

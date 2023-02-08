@@ -26,7 +26,7 @@ public class FileSystemParser {
 
     private static void parse(String string) {
         // split string along spaces
-        final List<String> line = Arrays.stream(string.split("[ ]")).toList();
+        final List<String> line = Arrays.stream(string.split(" ")).toList();
 
         switch (line.get(0)) {
             case COMMAND   -> parseCommand(line);
