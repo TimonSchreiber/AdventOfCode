@@ -20,12 +20,10 @@ public class HillClimbingAlgorithm {
 
         HeightMap heightMap = HeightMapParser.parse(input);
 
-        PathFinder pathFinder = new PathFinder(heightMap);
-        int part1 = pathFinder.findPath();
+        int part1 = new PathFinder(heightMap).findPath();
         System.out.println("-> Part1: " + part1);
 
-        TrailFinder trailFinder = new TrailFinder(heightMap);
-        int part2 = trailFinder.findTrail();
+        int part2 = new TrailFinder(heightMap).findTrail();
         System.out.println("-> Part2: " + part2);
     }
 
