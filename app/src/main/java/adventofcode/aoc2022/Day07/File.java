@@ -1,5 +1,8 @@
 package adventofcode.aoc2022.Day07;
 
+/**
+ * File
+ */
 public record File(long size, String name) implements Entry {
 
     @Override

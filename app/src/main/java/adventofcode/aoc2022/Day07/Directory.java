@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Directory
+ */
 public record Directory(
     String name,
     Directory parent,

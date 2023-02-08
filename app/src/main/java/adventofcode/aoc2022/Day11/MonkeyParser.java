@@ -1,5 +1,6 @@
 package adventofcode.aoc2022.Day11;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.LongUnaryOperator;
@@ -45,19 +46,20 @@ public class MonkeyParser {
 
         return new Monkey(
             id,
-            startingItems,
+            new ArrayDeque<>(startingItems),
             operation,
             divisor,
             monkeyIdTrue,
-            monkeyIdFalse
+            monkeyIdFalse,
+            new Inspections()
         );
     }
 
     private static List<Item> parseItems(String string) {
         return Arrays.stream(string.split(", "))
-            .mapToLong(Long::parseLong)
-            .mapToObj(Item::new)
-            .toList();
+                .mapToLong(Long::parseLong)
+                .mapToObj(Item::new)
+                .toList();
     }
 
     private static LongUnaryOperator parseOperation(String string) {

@@ -1,5 +1,8 @@
 package adventofcode.aoc2022.Day04;
 
+/**
+ * Section Range
+ */
 public record SectionRange(int start, int end) {
 
     public boolean contains(SectionRange other) {

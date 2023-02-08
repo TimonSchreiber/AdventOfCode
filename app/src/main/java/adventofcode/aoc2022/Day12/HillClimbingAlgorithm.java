@@ -8,7 +8,7 @@ import adventofcode.util.IO.ReadInput;
  * https://adventofcode.com/2022/day/12
  */
 public class HillClimbingAlgorithm {
-    
+
     public static void main(String[] args) {
 
         System.out.println("\n### Day 12: Hill Climbing Algorithm ###\n");

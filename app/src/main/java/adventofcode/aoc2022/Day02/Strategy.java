@@ -1,13 +1,9 @@
 package adventofcode.aoc2022.Day02;
 
+/**
+ * Strategy
+ */
 public record Strategy(int shape1, int shape2) {
-
-    public Strategy(String string) { // string is of format 'A X'
-        this(
-            string.codePointAt(0),
-            string.codePointAt(2)
-        );
-    }
 
     // TODO: extract at least the 3 methods at the bottom to their own class (StrategyGuide, Hand(s), ... maybe?)
 

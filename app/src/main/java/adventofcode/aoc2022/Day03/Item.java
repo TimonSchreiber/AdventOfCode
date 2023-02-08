@@ -1,5 +1,8 @@
 package adventofcode.aoc2022.Day03;
 
+/**
+ * Item
+ */
 public record Item(int codePoint) {
 
     public int priorityValue() {

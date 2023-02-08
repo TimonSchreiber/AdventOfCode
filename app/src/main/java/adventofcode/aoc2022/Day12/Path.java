@@ -6,6 +6,9 @@ import java.util.List;
 import adventofcode.util.geometry.Direction;
 import adventofcode.util.geometry.Point2D;
 
+/**
+ * Path
+ */
 public record Path(List<Direction> path, Point2D position) {
 
     /**

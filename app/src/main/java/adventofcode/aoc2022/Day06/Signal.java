@@ -1,5 +1,8 @@
 package adventofcode.aoc2022.Day06;
 
+/**
+ * Signal
+ */
 public record Signal(String signal) {
 
     public int indexOfMarker(int markerSize) {

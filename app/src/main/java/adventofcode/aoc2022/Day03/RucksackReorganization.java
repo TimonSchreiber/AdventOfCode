@@ -17,8 +17,8 @@ public class RucksackReorganization {
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        final List<Compartments> compartments = RucksackParser.parseToCompartments(input);
-        final List<Rucksack> rucksacks = RucksackParser.parseToRucksacks(input);
+        final List<Compartments> compartments = RucksackParser.parseCompartments(input);
+        final List<Rucksack> rucksacks = RucksackParser.parseRucksacks(input);
 
         int part1 = findCommonItem(compartments);
         System.out.println("-> Part1: " + part1);

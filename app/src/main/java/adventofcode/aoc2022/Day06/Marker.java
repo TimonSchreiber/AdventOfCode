@@ -1,10 +1,13 @@
 package adventofcode.aoc2022.Day06;
 
+/**
+ * Marker
+ */
 public record Marker(String marker) {
-    
+
     /**
      * Check if every character in the Marker is unique.
-     * 
+     *
      * @return  {@code true} if the number of unique chars in this Marker is
      *          equal to its length, {@code false} otherwise.
      */

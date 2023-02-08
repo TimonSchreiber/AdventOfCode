@@ -4,6 +4,9 @@ import java.util.Map;
 
 import adventofcode.util.geometry.Point2D;
 
+/**
+ * HeightMap
+ */
 public record HeightMap(Map<Point2D, Height> map, Point2D start, Point2D end, int width, int height) {
 
     /**

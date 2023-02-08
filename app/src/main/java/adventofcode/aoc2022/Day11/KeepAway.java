@@ -4,6 +4,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.LongUnaryOperator;
 
+/**
+ * Keep Away
+ */
 public class KeepAway {
     private List<Monkey> monkeys;
     private LongUnaryOperator reliefOperation;

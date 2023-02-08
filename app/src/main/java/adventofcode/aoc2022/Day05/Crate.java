@@ -1,5 +1,8 @@
 package adventofcode.aoc2022.Day05;
 
+/**
+ * Crate
+ */
 public record Crate(int codePoint) {
 
     @Override

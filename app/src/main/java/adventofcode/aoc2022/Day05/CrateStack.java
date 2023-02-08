@@ -2,6 +2,9 @@ package adventofcode.aoc2022.Day05;
 
 import java.util.Deque;
 
+/**
+ * Crate Stack
+ */
 public record CrateStack(Deque<Crate> stack) {
 
     public boolean isEmpty() {

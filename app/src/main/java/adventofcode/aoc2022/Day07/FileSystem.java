@@ -1,5 +1,9 @@
 package adventofcode.aoc2022.Day07;
 
+/**
+ * File System
+ * Only for helping the FileSystemParser
+ */
 public class FileSystem {
     Directory root = new Directory("/", null);
     Directory current = root;

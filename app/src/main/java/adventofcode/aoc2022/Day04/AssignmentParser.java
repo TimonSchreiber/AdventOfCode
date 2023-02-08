@@ -3,6 +3,9 @@ package adventofcode.aoc2022.Day04;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Assignment Parser
+ */
 public class AssignmentParser {
     
     public static List<AssignmentPair> parse(List<String> list) {

@@ -4,31 +4,44 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Rucksack Parser
+ */
 public class RucksackParser {
-    public static List<Compartments> parseToCompartments(List<String> list) {
+
+    public static List<Compartments> parseCompartments(List<String> list) {
         return list.stream()
-                .map(RucksackParser::parseToCompartments)
+                .map(RucksackParser::parseCompartments)
                 .toList();
     }
 
-    public static List<Rucksack> parseToRucksacks(List<String> list){
+    public static List<Rucksack> parseRucksacks(List<String> list){
         return list.stream()
-                .map(RucksackParser::parseToRucksack)
+                .map(RucksackParser::parseRucksack)
                 .toList();
     }
 
-    private static Compartments parseToCompartments(String line) {
-        int middle = line.length() / 2;
-        String s1 = line.substring(0, middle);
-        String s2 = line.substring(middle);
-        final Set<Item> set1 = s1.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
-        final Set<Item> set2 = s2.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
+    private static Compartments parseCompartments(String string) {
+        int middle = string.length() / 2;
+        String s1 = string.substring(0, middle);
+        String s2 = string.substring(middle);
+
+        final Set<Item> set1 = parseSetOfItems(s1);
+        final Set<Item> set2 = parseSetOfItems(s2);
+
         return new Compartments(set1, set2);
     }
 
-    private static Rucksack parseToRucksack(String line) {
-        final Set<Item> set = line.codePoints().mapToObj(Item::new).collect(Collectors.toSet());
+    private static Rucksack parseRucksack(String string) {
+        final Set<Item> set = parseSetOfItems(string);
+
         return new Rucksack(set);
+    }
+
+    private static Set<Item> parseSetOfItems(String string) {
+        return string.codePoints()
+                .mapToObj(Item::new)
+                .collect(Collectors.toSet());
     }
 
 }

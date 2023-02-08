@@ -1,5 +1,8 @@
 package adventofcode.aoc2022.Day11;
 
+/**
+ * Inspections
+ */
 public class Inspections {
     private long inspections = 0;
 

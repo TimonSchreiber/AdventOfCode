@@ -4,6 +4,9 @@ import java.util.List;
 
 import adventofcode.util.IO.ReadInput;
 
+/**
+ * https://adventofcode.com/2022/day/4
+ */
 public class CampCleanup {
     
     public static void main(String[] args) {

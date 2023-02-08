@@ -15,7 +15,7 @@ import adventofcode.util.geometry.Point2D;
 public class Rope {
     private List<Point2D> rope;
 
-    // constrcutor with the initial Point2D and the number of elements
+    // constructor with the initial Point2D and the number of elements
     public Rope(Point2D start, int size) {
         this.rope = new ArrayList<>();
         IntStream.range(0, size)
@@ -40,20 +40,22 @@ public class Rope {
     // run through a lost of Motions and track all the unique Point2Ds the Tail visits.
     // return the number of unique Point2Ds
     public int numberOfVisitedPositions(List<Motion> motions) {
-        final Set<Point2D> uniquePoint2Ds = new HashSet<>();
-        uniquePoint2Ds.add(this.tail());
+        final Set<Point2D> uniquePoints = new HashSet<>();
+        uniquePoints.add(this.tail());
 
         motions.stream()
             .forEachOrdered(
-                motion -> {
-                    for (int i = 0; i < motion.steps(); i++) {
-                        this.move(motion.direction());
-                        uniquePoint2Ds.add(this.tail());
-                    }
-                }
+                motion -> makeMoves(motion, uniquePoints)
             );
 
-        return uniquePoint2Ds.size();
+        return uniquePoints.size();
+    }
+
+    private void makeMoves(Motion motion, Set<Point2D> uniquePoints) {
+        for (int i = 0; i < motion.steps(); i++) {
+            this.move(motion.direction());
+            uniquePoints.add(this.tail());
+        }
     }
 
     // move the head of this Rope to a new Point2D

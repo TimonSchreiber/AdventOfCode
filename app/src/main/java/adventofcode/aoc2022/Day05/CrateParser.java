@@ -9,26 +9,27 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
+ * Crate Parser
+ *
  * Example input:
  *     [D]
  * [N] [C]
  * [Z] [M] [P]
  *  1   2   3
  */
-
 public class CrateParser {
 
-    private static CrateStacks stacks;
+    private static Map<Integer, CrateStack> stacks;
 
     public static CrateStacks parse(List<String> list) {
 
-        stacks = new CrateStacks(new HashMap<>());
+        stacks = new HashMap<>();
 
         list.stream()
             .filter(CrateParser::isCrateString)
             .forEachOrdered(CrateParser::parse);
 
-        return stacks;
+        return new CrateStacks(stacks);
     }
 
     private static void parse(String string) {

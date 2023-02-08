@@ -1,6 +1,5 @@
 package adventofcode.aoc2022.Day11;
 
-import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 import java.util.function.LongUnaryOperator;
@@ -17,18 +16,6 @@ public record Monkey(
     int monkeyIdFalse,
     Inspections numberOfInspections
 ){
-
-    public Monkey(int id, List<Item> items, LongUnaryOperator operation, int divisor, int idTrue, int idFalse) {
-        this(
-            id,
-            new ArrayDeque<>(items),
-            operation,
-            divisor,
-            idTrue,
-            idFalse,
-            new Inspections()
-        );
-    }
 
     public void turn(LongUnaryOperator reliefOperation, List<Monkey> monkeys) {
         while(!this.items.isEmpty()) {
