@@ -21,12 +21,12 @@ public class HillClimbingAlgorithm {
         HeightMap heightMap = HeightMapParser.parse(input);
 
         PathFinder pathFinder = new PathFinder(heightMap);
-
         int part1 = pathFinder.findPath();
         System.out.println("-> Part1: " + part1);
 
-        // long part2 = game2.twoMostActiveMonkeys();
-        // System.out.println("-> Part2: " + part2);
+        TrailFinder trailFinder = new TrailFinder(heightMap);
+        int part2 = trailFinder.findTrail();
+        System.out.println("-> Part2: " + part2);
     }
 
 }

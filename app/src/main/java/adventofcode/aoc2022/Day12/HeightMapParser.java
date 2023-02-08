@@ -22,11 +22,11 @@ public class HeightMapParser {
         IntStream.range(0, list.size())
             .forEach(i -> parseHeights(i, list.get(i)));
 
-        Entry<Point2D, Height> start = heightMap.entrySet().stream().filter(entry -> entry.getValue().height() == 'S').findAny().orElseThrow();
-        Entry<Point2D, Height> end   = heightMap.entrySet().stream().filter(entry -> entry.getValue().height() == 'E').findAny().orElseThrow();
+        Entry<Point2D, Height> start = heightMap.entrySet().stream().filter(entry -> entry.getValue().elevation() == 'S').findAny().orElseThrow();
+        Entry<Point2D, Height> end   = heightMap.entrySet().stream().filter(entry -> entry.getValue().elevation() == 'E').findAny().orElseThrow();
 
-        heightMap.replace(start.getKey(), new Height("a".codePointAt(0)));
-        heightMap.replace(  end.getKey(), new Height("z".codePointAt(0)));
+        heightMap.replace(start.getKey(), Height.LOW);
+        heightMap.replace(  end.getKey(), Height.HIGH);
 
         return new HeightMap(heightMap, start.getKey(), end.getKey(), list.size(), list.get(0).length());
     }

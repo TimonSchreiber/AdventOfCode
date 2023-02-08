@@ -10,10 +10,10 @@ import adventofcode.util.geometry.Direction;
 import adventofcode.util.geometry.Point2D;
 
 /**
- * Path Finder
- * Find the shortest Path from the Start to the End
+ * Trail Finder
+ * Find the shortest Trail from any Point at the lowest elevation to the End Point
  */
-public class PathFinder {
+public class TrailFinder {
 
     private static final EnumSet<Direction> DIRECTIONS = EnumSet.allOf(Direction.class);
 
@@ -23,22 +23,22 @@ public class PathFinder {
     private boolean foundPath;
     private Path solutionPath;
 
-    public PathFinder(HeightMap heightMap) {
+    public TrailFinder(HeightMap heightMap) {
         this.heightMap = heightMap;
         this.pathQueue = new ArrayDeque<>();
         this.visitedPoints = new ArrayList<>();
         this.foundPath = false;
     }
 
-    public int findPath() {
+    public int findTrail() {
 
-        Path startingPath = new Path(List.of(), this.heightMap.start());
+        Path startingPath = new Path(List.of(), this.heightMap.end());
         this.pathQueue.add(startingPath);
 
 
         while (!this.foundPath) {
             Path path = this.pathQueue.poll();
-            this.nextSteps(path);
+            nextSteps(path);
         }
 
         return this.solutionPath.size();
@@ -61,7 +61,7 @@ public class PathFinder {
             }
 
             // the Position is not reachable
-            if (!this.heightMap.isReachable(position, nextPosition)) {
+            if (!this.heightMap.isReachable(nextPosition, position)) {
                 continue;
             }
 
@@ -69,7 +69,7 @@ public class PathFinder {
             this.pathQueue.add(nextPath);
             this.visitedPoints.add(nextPosition);
 
-            if (nextPosition.equals(heightMap.end())) {
+            if (this.heightMap.get(nextPosition).equals(Height.LOW)) {
                 this.foundPath = true;
                 this.solutionPath = nextPath;
                 return;
