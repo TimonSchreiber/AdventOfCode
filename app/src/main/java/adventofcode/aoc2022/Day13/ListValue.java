@@ -6,8 +6,9 @@ import java.util.stream.Collectors;
 /**
  * List Value
  */
-public record ListValue(List<Value> values) implements Value {
+public record ListValue(List<Value> values) implements Value, Comparable<ListValue> {
 
+    @Override
     public int compareTo(ListValue other) {
         int leftSize  = this.values.size();
         int rightSize = other.values.size();
