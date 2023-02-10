@@ -14,6 +14,8 @@ public class DistressSignal {
     private static final ListValue DIVIDER_1 = ListValue.of(ListValue.of(new IntValue(2)));
     private static final ListValue DIVIDER_2 = ListValue.of(ListValue.of(new IntValue(6)));
 
+    public static final List<ListValue> dividerPackets = List.of(DIVIDER_1, DIVIDER_2);
+
     public static void main(String[] args) {
 
         System.out.println("\n### Day 13: Distress Signal ###\n");
@@ -28,9 +30,7 @@ public class DistressSignal {
         System.out.println("-> Part1: " + part1);
 
         List<ListValue> listValues = ValueParser.parse(input);
-        listValues.add(DIVIDER_1);
-        listValues.add(DIVIDER_2);
-        Collections.sort(listValues);
+        addDividersAndSOrt(listValues);
         int part2 = dividerPackets(listValues);
         System.out.println("-> Part2: " + part2);
     }
@@ -40,6 +40,12 @@ public class DistressSignal {
                 .filter(i -> packets.get(i).checkOrder())
                 .map(i -> i+1)
                 .sum();
+    }
+
+    private static void addDividersAndSOrt(List<ListValue> listValues) {
+        listValues.add(DIVIDER_1);
+        listValues.add(DIVIDER_2);
+        Collections.sort(listValues);
     }
 
     private static int dividerPackets(List<ListValue> listValues) {
