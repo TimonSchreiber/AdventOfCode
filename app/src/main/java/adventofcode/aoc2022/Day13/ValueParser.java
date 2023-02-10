@@ -6,6 +6,15 @@ import java.util.stream.Collectors;
 
 public class ValueParser {
 
+    private static final char LIST_START = '[';
+    private static final char LIST_END = ']';
+
+    /**
+     * Use when parsing a String of one or more ListValues to a List of
+     * ListValues.
+     * @param string
+     * @return          A mutable List of ListValues
+     */
     public static List<ListValue> parse(String string) {
         return string.lines()
                 .filter(ValueParser::isNotBlank)
@@ -46,7 +55,7 @@ public class ValueParser {
             // if the char is an opening bracket take the subString starting
             // from i and parse it to a ListValue. at the end jump to the index
             // of the matching closing bracket.
-            else if (ch == '[') {
+            else if (ch == LIST_START) {
                 String listValueStr = string.substring(i);
                 ListValue listValue = parseListValue(listValueStr);
                 values.add(listValue);
@@ -75,8 +84,8 @@ public class ValueParser {
                 return 0;
             }
             char ch = string.charAt(index++);
-            if (ch == '[') { bracketCounter++; }
-            if (ch == ']') { bracketCounter--; }
+            if (ch == LIST_START) { bracketCounter++; }
+            if (ch == LIST_END) { bracketCounter--; }
         } while (bracketCounter != 0);
 
         return index-1;
