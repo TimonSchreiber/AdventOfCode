@@ -35,25 +35,28 @@ public class DistressSignal {
         System.out.println("-> Part2: " + part2);
     }
 
+    // sum up indices of correctly ordered PacketPairs
     private static int correctOrder(List<PacketPair> packets) {
         return IntStream.range(0, packets.size())
                 .filter(i -> packets.get(i).checkOrder())
                 .map(i -> i+1)
                 .sum();
     }
+    
+    // multiply the indices of the divider Packets
+    private static int dividerPackets(List<ListValue> listValues) {
+        return IntStream.range(0, listValues.size())
+        .filter(i -> DIVIDER_1.equals(listValues.get(i)) || DIVIDER_2.equals(listValues.get(i)))
+        .map(i -> i+1)
+        .reduce((a,b) -> a*b)
+        .orElseThrow();
+    }
 
+    // all two divider ListValues and sort the List
     private static void addDividersAndSOrt(List<ListValue> listValues) {
         listValues.add(DIVIDER_1);
         listValues.add(DIVIDER_2);
         Collections.sort(listValues);
-    }
-
-    private static int dividerPackets(List<ListValue> listValues) {
-        return IntStream.range(0, listValues.size())
-                .filter(i -> DIVIDER_1.equals(listValues.get(i)) || DIVIDER_2.equals(listValues.get(i)))
-                .map(i -> i+1)
-                .reduce((a,b) -> a*b)
-                .orElseThrow();
     }
 
 }
