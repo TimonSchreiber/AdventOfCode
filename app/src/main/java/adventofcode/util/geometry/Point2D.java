@@ -10,8 +10,8 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
 
     public Point2D moveTowards(Direction direction) {
         return switch (direction) {
-            case U -> new Point2D(this.x + 0, this.y + 1);   
-            case D -> new Point2D(this.x + 0, this.y - 1);     
+            case U -> new Point2D(this.x + 0, this.y - 1);   
+            case D -> new Point2D(this.x + 0, this.y + 1);     
             case L -> new Point2D(this.x - 1, this.y + 0);     
             case R -> new Point2D(this.x + 1, this.y + 0);
             // no default, switch is exhaustive
@@ -34,7 +34,7 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
             vec.add((deltaX > 0) ? Direction.R : Direction.L);
         }
         if (deltaY != 0) {
-            vec.add((deltaY > 0) ? Direction.U : Direction.D);
+            vec.add((deltaY > 0) ? Direction.D : Direction.U);
         }
 
         Point2D tmp = new Point2D(this.x, this.y);
