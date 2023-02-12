@@ -18,6 +18,14 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
         };
     }
 
+    public Point2D moveTowards(Direction... directions) {
+        Point2D tmp = this;
+        for (Direction dir : directions) {
+            tmp = tmp.moveTowards(dir);
+        }
+        return tmp;
+    }
+
     public double distance(Point2D other) {
         double deltaXSquared = Math.pow(other.x - this.x, 2);
         double deltaYSquared = Math.pow(other.y - this.y, 2);
@@ -37,13 +45,22 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
             vec.add((deltaY > 0) ? Direction.D : Direction.U);
         }
 
-        Point2D tmp = new Point2D(this.x, this.y);
+        Point2D newPoint = new Point2D(this.x, this.y);
 
         for (Direction direction : vec) {
-            tmp = tmp.moveTowards(direction);
+            newPoint = newPoint.moveTowards(direction);
         }
 
-        return tmp;
+        return newPoint;
+    }
+
+    /**
+     * @param target
+     * @return
+     */
+    public List<Point2D> getPointsOnLine(Point2D target) {
+        // TODO:
+        return List.of();
     }
 
     @Override
