@@ -153,10 +153,10 @@ public record Cave(Set<Point2D> rock, Set<Point2D> sand) {
     }
 
     private void drawSymbol(Point2D point) {
-        if      (rock.contains(point)) { System.out.println("#"); }
-        else if (sand.contains(point)) { System.out.println("o"); }
-        else if (SOURCE.equals(point)) { System.out.println("+"); }
-        else                           { System.out.println("."); }
+        if      (rock.contains(point)) { System.out.print("#"); }
+        else if (sand.contains(point)) { System.out.print("o"); }
+        else if (SOURCE.equals(point)) { System.out.print("+"); }
+        else                           { System.out.print("."); }
     }
 
 }
