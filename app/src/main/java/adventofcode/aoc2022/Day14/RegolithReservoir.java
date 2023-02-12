@@ -34,4 +34,5 @@ public class RegolithReservoir {
         int part2 = cave.sand().size();
         System.out.println("-> Part2: " + part2);
     }
+
 }
