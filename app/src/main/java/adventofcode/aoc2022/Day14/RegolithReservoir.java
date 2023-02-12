@@ -22,7 +22,7 @@ public class RegolithReservoir {
 
         cave.print();
 
-        cave.fillSand();
+        cave.fillSandBottomLess();
 
         int part1 = cave.sand().size();
         System.out.println("-> Part1: " + part1);

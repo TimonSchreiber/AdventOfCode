@@ -18,11 +18,11 @@ public record Cave(Set<Point2D> rock, Set<Point2D> sand) {
             new Direction[]{Direction.R, Direction.D}
         );
 
-    public void fillSand() {
-        int bottom = rock.stream().mapToInt(Point2D::y).max().orElseThrow();
-        boolean reachedBottom = false;
+    public void fillSandBottomLess() {
+        int abyss = rock.stream().mapToInt(Point2D::y).max().orElseThrow();
+        boolean sandFallsForever = false;
 
-        while (!reachedBottom) {
+        while (!sandFallsForever) {
             Point2D grain = SOURCE;
             boolean fellDown = true;
 
@@ -34,8 +34,8 @@ public record Cave(Set<Point2D> rock, Set<Point2D> sand) {
                     break;
                 }
 
-                if (grain.y() > bottom) {
-                    reachedBottom = true;
+                if (grain.y() > abyss) {
+                    sandFallsForever = true;
                     return;
                 }
                 grain = nextStep;
