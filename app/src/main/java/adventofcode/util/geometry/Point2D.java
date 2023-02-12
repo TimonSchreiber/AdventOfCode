@@ -95,9 +95,13 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
             return IntStream.rangeClosed(start, end)
                     .mapToObj(y -> new Point2D(this.x, y))
                     .toList();
+        } else if (this.equals(other)) {
+            // the two points are the same
+            // -> return a List of a single Point (this)
+            return List.of(this);
         } else {
-            //
-            return List.of();
+            // something went wrong!
+            throw new IllegalStateException();
         }
     }
 
