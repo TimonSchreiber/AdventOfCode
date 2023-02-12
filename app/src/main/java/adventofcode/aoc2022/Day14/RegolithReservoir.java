@@ -8,7 +8,7 @@ import adventofcode.util.IO.ReadInput;
  * https://adventofcode.com/2022/day/14
  */
 public class RegolithReservoir {
-    
+
     public static void main(String[] args) {
 
         System.out.println("\n### Day 13: Regolith Reservoir ###\n");
