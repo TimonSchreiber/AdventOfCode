@@ -2,6 +2,8 @@ package adventofcode.aoc2022.Day14;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import adventofcode.util.geometry.Direction;
 import adventofcode.util.geometry.Point2D;
@@ -17,6 +19,10 @@ public record Cave(Set<Point2D> rock, Set<Point2D> sand) {
             new Direction[]{Direction.L, Direction.D},
             new Direction[]{Direction.R, Direction.D}
         );
+
+    public void clearSand() {
+        sand.clear();
+    }
 
     /**
      * Part 1: fill this Cave with Sand until the next grain of sand will fall
@@ -124,36 +130,33 @@ public record Cave(Set<Point2D> rock, Set<Point2D> sand) {
     public void print() {
         System.out.println("\nCAVE\n");
 
-        // get the smallest and biggest x- and y-values of all Rocks
-        int xMin = rock.stream().mapToInt(Point2D::x).min().orElseThrow();
-        int xMax = rock.stream().mapToInt(Point2D::x).max().orElseThrow();
-        int yMin = rock.stream().mapToInt(Point2D::y).min().orElseThrow();
-        int yMax = rock.stream().mapToInt(Point2D::y).max().orElseThrow();
+        // combine all elements to a single Set
+        Set<Point2D> elements = Stream.of(rock, sand, Set.of(SOURCE))
+                .flatMap(set -> set.stream())
+                .collect(Collectors.toSet());
 
+        // get the smallest and biggest x- and y-values of all elements
+        int xMin = elements.stream().mapToInt(Point2D::x).min().orElseThrow();
+        int xMax = elements.stream().mapToInt(Point2D::x).max().orElseThrow();
+        int yMin = elements.stream().mapToInt(Point2D::y).min().orElseThrow();
+        int yMax = elements.stream().mapToInt(Point2D::y).max().orElseThrow();
 
-        // check if the source is bigger/smaller
-        xMin = Integer.min(xMin, SOURCE.x());
-        xMax = Integer.max(xMax, SOURCE.x());
-        yMin = Integer.min(yMin, SOURCE.y());
-        yMax = Integer.max(yMax, SOURCE.y());
-
-        // loop over the whole range of coordinates these rocks can be in and print
-        for (int y = yMin-2; y <= yMax+2; y++) {
-            for (int x = xMin-79; x <= xMax+79; x++) {
+        // Loop over every
+        for (int y = yMin; y <= yMax; y++) {
+            for (int x = xMin; x <= xMax; x++) {
                 Point2D point = new Point2D(x, y);
-                String string = drawSymbol(point);
-                System.out.print(string);
+                drawSymbol(point);
             }
             System.out.println();
         }
         System.out.println();
     }
 
-    private String drawSymbol(Point2D point) {
-        if (rock.contains(point)) { return "#"; }
-        else if (sand.contains(point)) { return "o"; }
-        else if (SOURCE.equals(point)) { return "+"; }
-        else { return "."; }
+    private void drawSymbol(Point2D point) {
+        if      (rock.contains(point)) { System.out.println("#"); }
+        else if (sand.contains(point)) { System.out.println("o"); }
+        else if (SOURCE.equals(point)) { System.out.println("+"); }
+        else                           { System.out.println("."); }
     }
 
 }

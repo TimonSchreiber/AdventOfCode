@@ -18,26 +18,20 @@ public class RegolithReservoir {
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        Cave cave1 = RockParser.parse(input);
-        cave1.print();
-        cave1.fillSandBottomLess();
-        cave1.print();
-        int part1 = cave1.sand().size();
+        Cave cave = RockParser.parse(input);
+
+        cave.print();
+
+        cave.fillSandBottomLess();
+        cave.print();
+        int part1 = cave.sand().size();
         System.out.println("-> Part1: " + part1);
 
-        Cave cave2 = RockParser.parse(input);
-        cave2.print();
-        cave2.fillSandFloor();
-        cave2.print();
-        int part2 = cave2.sand().size();
+        cave.clearSand();
+
+        cave.fillSandFloor();
+        cave.print();
+        int part2 = cave.sand().size();
         System.out.println("-> Part2: " + part2);
     }
 }
-
-
-/**
- * TODO:
- *  1. add sand source (500,0) to Cave.java
- *  2. write Sand.java
- *  3. write loop for falling sand
- */
