@@ -2,6 +2,7 @@ package adventofcode.util.geometry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * Point in 2D.
@@ -10,9 +11,9 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
 
     public Point2D moveTowards(Direction direction) {
         return switch (direction) {
-            case U -> new Point2D(this.x + 0, this.y - 1);   
-            case D -> new Point2D(this.x + 0, this.y + 1);     
-            case L -> new Point2D(this.x - 1, this.y + 0);     
+            case U -> new Point2D(this.x + 0, this.y - 1);
+            case D -> new Point2D(this.x + 0, this.y + 1);
+            case L -> new Point2D(this.x - 1, this.y + 0);
             case R -> new Point2D(this.x + 1, this.y + 0);
             // no default, switch is exhaustive
         };
@@ -26,11 +27,28 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
         return tmp;
     }
 
+    /**
+     * Calculate the euclidian distance between two Points.
+     * @param other
+     * @return
+     */
     public double distance(Point2D other) {
         double deltaXSquared = Math.pow(other.x - this.x, 2);
         double deltaYSquared = Math.pow(other.y - this.y, 2);
 
         return Math.sqrt(deltaXSquared + deltaYSquared);
+    }
+
+    /**
+     * Calculate the manhattan distance between two Points.
+     * @param other
+     * @return
+     */
+    public int manhattanDistance(Point2D other) {
+        int deltaX = Math.abs(other.x - this.x);
+        int deltaY = Math.abs(other.y - this.y);
+
+        return deltaX + deltaY;
     }
 
     public Point2D moveClose(Point2D other) {
@@ -55,12 +73,32 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
     }
 
     /**
-     * @param target
+     * Get a List of all Points between this Point and another Point. Both
+     * Points must be either vertically or horizontally alligned.
+     * @param other
      * @return
      */
-    public List<Point2D> getPointsOnLine(Point2D target) {
-        // TODO:
-        return List.of();
+    public List<Point2D> getPointsOnLine(Point2D other) {
+        if ((this.x - other.x) != 0) {
+            // the two points have different x values
+            // -> draw a horizontal line from this Point to the other
+            int start = Integer.min(this.x, other.x);
+            int end   = Integer.max(this.x, other.x);
+            return IntStream.rangeClosed(start, end)
+                    .mapToObj(x -> new Point2D(x, this.y))
+                    .toList();
+        } else if ((this.y - other.y) != 0) {
+            // the two points have different y values
+            // -> draw a vertical line from this Point to the other
+            int start = Integer.min(this.y, other.y);
+            int end   = Integer.max(this.y, other.y);
+            return IntStream.rangeClosed(start, end)
+                    .mapToObj(y -> new Point2D(this.x, y))
+                    .toList();
+        } else {
+            //
+            return List.of();
+        }
     }
 
     @Override
