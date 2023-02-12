@@ -10,7 +10,7 @@ import adventofcode.util.geometry.Point2D;
 public class RockParser {
 
     private static Set<Point2D> set;
-    
+
     public static Cave parse(List<String> list) {
         set = new HashSet<>();
 
@@ -28,14 +28,8 @@ public class RockParser {
             Point2D current = points.get(i);
             Point2D target = points.get(i+1);
 
-            // Definitley make the class Point2D have a method for returning a List (?) of points forming a line like this
-            // maybe use y = m*x + b and figure out all the points -> set.addAll(Collection<Point2D>)
-            while (!current.equals(target)) {
-                set.add(current);
-                current = current.moveClose(target);
-            }
-
-            set.add(target);
+            List<Point2D> line = current.getPointsOnLine(target);
+            set.addAll(line);
         }
     }
 
