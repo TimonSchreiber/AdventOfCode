@@ -16,9 +16,7 @@ public class RockParser {
 
         list.stream().forEach(RockParser::parseRock);
 
-        Cave cave = new Cave(set);
-
-        return cave;
+        return new Cave(set, new HashSet<>());
     }
 
     private static void parseRock(String string) {
@@ -27,17 +25,17 @@ public class RockParser {
                 .toList();
 
         for (int i = 0; i < points.size()-1; i++) {
-            Point2D first = points.get(i);
-            Point2D second = points.get(i+1);
+            Point2D current = points.get(i);
+            Point2D target = points.get(i+1);
 
-            // TODO: try to find the actual Direction to move towards
-            while (!first.equals(second)) {
-                set.add(first);
-                first = first.moveClose(second);
-                set.add(first);
-                // TODO: or at least not add twice like an idiot
+            // Definitley make the class Point2D have a method for returning a List (?) of points forming a line like this
+            // maybe use y = m*x + b and figure out all the points -> set.addAll(Collection<Point2D>)
+            while (!current.equals(target)) {
+                set.add(current);
+                current = current.moveClose(target);
             }
 
+            set.add(target);
         }
     }
 

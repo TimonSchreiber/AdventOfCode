@@ -22,8 +22,12 @@ public class RegolithReservoir {
 
         cave.print();
 
-        // int part1 = correctOrder(packets);
-        // System.out.println("-> Part1: " + part1);
+        cave.fillSand();
+
+        int part1 = cave.sand().size();
+        System.out.println("-> Part1: " + part1);
+
+        cave.print();
 
         // int part2 = dividerPackets(listValues);
         // System.out.println("-> Part2: " + part2);
