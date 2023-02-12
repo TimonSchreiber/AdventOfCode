@@ -11,7 +11,7 @@ public class RegolithReservoir {
 
     public static void main(String[] args) {
 
-        System.out.println("\n### Day 13: Regolith Reservoir ###\n");
+        System.out.println("\n### Day 14: Regolith Reservoir ###\n");
 
         // file path as String
         final String filePath = "aoc2022/Day14/input";
