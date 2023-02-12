@@ -18,19 +18,19 @@ public class RegolithReservoir {
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        Cave cave = RockParser.parse(input);
-
-        cave.print();
-
-        cave.fillSandBottomLess();
-
-        int part1 = cave.sand().size();
+        Cave cave1 = RockParser.parse(input);
+        cave1.print();
+        cave1.fillSandBottomLess();
+        cave1.print();
+        int part1 = cave1.sand().size();
         System.out.println("-> Part1: " + part1);
 
-        cave.print();
-
-        // int part2 = dividerPackets(listValues);
-        // System.out.println("-> Part2: " + part2);
+        Cave cave2 = RockParser.parse(input);
+        cave2.print();
+        cave2.fillSandFloor();
+        cave2.print();
+        int part2 = cave2.sand().size();
+        System.out.println("-> Part2: " + part2);
     }
 }
 
