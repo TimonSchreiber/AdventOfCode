@@ -105,6 +105,31 @@ public record Point2D(int x, int y) implements Comparable<Point2D> {
         }
     }
 
+    /**
+     * Get a List of all the Points inside a topoligical ball using Manhattan or
+     * taxiab geometry in 2 Dimensions. This ball looks like a square rotate by
+     * 45°.
+     * @param radius    the radius of this square
+     * @return          A List of {@code Point2Ds} describing the area of the
+     *                  square.
+     * @see             https://en.wikipedia.org/wiki/Taxicab_geometry
+     */
+    public List<Point2D> getManhattanSquare(int radius) {
+        List<Point2D> points = new ArrayList<>();
+
+        for (int deltaY = -radius; deltaY <= radius; deltaY++) {
+            int deltaX = Math.abs(radius - Math.abs(deltaY));
+
+            Point2D point1 = new Point2D(this.x - deltaX, this.y + deltaY);
+            Point2D point2 = new Point2D(this.x + deltaX, this.y + deltaY);
+
+            List<Point2D> list = point1.getPointsOnLine(point2);
+            points.addAll(list);
+        }
+
+        return points;
+    }
+
     @Override
     public int compareTo(Point2D other) {
         return (this.y == other.y)
