@@ -43,6 +43,11 @@ public record Range(int start, int end) /* implements Comparable<Range> */ {
         };
     }
 
+    // TODO: delete later
+    public boolean contains(int i) {
+        return (this.start <= i) && (i <= this.end);
+    }
+
     // @Override
     // public int compareTo(Range other) {
     //     return (this.start != other.end)

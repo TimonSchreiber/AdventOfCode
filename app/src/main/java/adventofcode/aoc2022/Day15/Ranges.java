@@ -26,4 +26,17 @@ public record Ranges(List<Range> ranges) {
         this.ranges.add(range);
     }
 
+    public boolean findBeacon() {
+
+        if (this.ranges.size() == 2) {
+            this.ranges.sort((r1,r2) -> Integer.compare(r1.start(), r2.start()));
+            int end = this.ranges.get(0).end();
+            int start = this.ranges.get(1).start();
+            return (start - end) == 2;
+        }
+
+
+        return false;
+    }
+
 }
