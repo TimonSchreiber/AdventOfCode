@@ -30,15 +30,9 @@ public class ProcedureParser {
     }
 
     private static boolean isNumeric(String string) {
-        if (string == null) {
-            return false;
-        }
-        try {
-            Integer.parseInt(string);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
+        // this matches any string that start with a '+' or '-' (optional)
+        // followed by one or more digits
+        return string.matches("^[-]?\\d+$");
     }
 
 }
