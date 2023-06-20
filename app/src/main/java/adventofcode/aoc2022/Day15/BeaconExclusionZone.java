@@ -2,12 +2,15 @@ package adventofcode.aoc2022.Day15;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
+// import java.util.Set;
+// import java.util.stream.Collectors;
 
 import adventofcode.util.IO.ReadInput;
 import adventofcode.util.geometry.Point2D;
 
+/**
+ * https://adventofcode.com/2022/day/15
+ */
 public class BeaconExclusionZone {
 
     public static void main(String[] args) {
@@ -63,29 +66,29 @@ public class BeaconExclusionZone {
                 // .orElseThrow();
     }
 
-    private static void print(SensorScan scan, Map<Integer, Ranges> map){
+    // private static void print(SensorScan scan, Map<Integer, Ranges> map){
 
-        Set<Point2D> sensors = scan.reports().stream().map(SensorReport::sensor).collect(Collectors.toSet());
-        Set<Point2D> beacons = scan.reports().stream().map(SensorReport::beacon).collect(Collectors.toSet());
+    //     Set<Point2D> sensors = scan.reports().stream().map(SensorReport::sensor).collect(Collectors.toSet());
+    //     Set<Point2D> beacons = scan.reports().stream().map(SensorReport::beacon).collect(Collectors.toSet());
 
-        for (int y = -11; y <= 31; y++){
-            System.out.print(y + "\t");
-            for (int x = -10; x <= 30; x++) {
-                Point2D point = new Point2D(x, y);
-                String str;
-                if (sensors.contains(point)) {
-                    str = "S";
-                } else if (beacons.contains(point)) {
-                    str = "B";
-                } else if (map.get(y) != null && map.get(y).ranges().stream().anyMatch(range -> range.contains(point.x()))) {
-                    str = "#";
-                } else {
-                    str = ".";
-                }
-                System.out.print(str);
-            }
-            System.out.println();
-        }
-    }
+    //     for (int y = -11; y <= 31; y++){
+    //         System.out.print(y + "\t");
+    //         for (int x = -10; x <= 30; x++) {
+    //             Point2D point = new Point2D(x, y);
+    //             String str;
+    //             if (sensors.contains(point)) {
+    //                 str = "S";
+    //             } else if (beacons.contains(point)) {
+    //                 str = "B";
+    //             } else if (map.get(y) != null && map.get(y).ranges().stream().anyMatch(range -> range.contains(point.x()))) {
+    //                 str = "#";
+    //             } else {
+    //                 str = ".";
+    //             }
+    //             System.out.print(str);
+    //         }
+    //         System.out.println();
+    //     }
+    // }
 
 }

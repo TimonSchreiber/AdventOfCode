@@ -9,7 +9,7 @@ public record Range(int start, int end) /* implements Comparable<Range> */ {
 
     public Range {
         if (end < start) {
-            throw new IllegalArgumentException("End of Range can not be smaller than Start: %d and %d".formatted(start, end));
+            throw new IllegalStateException("End should be greater than Start!");
         }
     }
 
@@ -39,7 +39,7 @@ public record Range(int start, int end) /* implements Comparable<Range> */ {
         return switch (list.size()) {
             case 1 -> new Range(list.get(0), list.get(0));
             case 2 -> new Range(list.get(0), list.get(1));
-            default -> throw new IllegalArgumentException("Invalid number of elements: " + list.size());
+            default -> throw new IllegalStateException("Invalid number of elements!");
         };
     }
 
