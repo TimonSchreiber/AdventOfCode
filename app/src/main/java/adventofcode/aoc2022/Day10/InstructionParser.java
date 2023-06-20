@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day10;
+package adventofcode.aoc2022.day10;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public class InstructionParser {
 
     private static final String NOOP = "noop";
     private static final String ADDX = "addx";
-    
+
     public static List<Instruction> parse(List<String> input) {
         return input.stream()
             .map(InstructionParser::parse)

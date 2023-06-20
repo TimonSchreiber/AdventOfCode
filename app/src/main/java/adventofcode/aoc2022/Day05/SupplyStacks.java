@@ -1,8 +1,8 @@
-package adventofcode.aoc2022.Day05;
+package adventofcode.aoc2022.day05;
 
 import java.util.List;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/5
@@ -13,7 +13,7 @@ public class SupplyStacks {
 
         System.out.println("\n### Day 5: Supply Stacks ###\n");
 
-        final String filePath = "aoc2022/Day05/input";
+        final String filePath = "aoc2022/day05/input";
 
         String input = ReadInput.toSingleStringFrom(filePath);
 

@@ -1,8 +1,8 @@
-package adventofcode.aoc2022.Day07;
+package adventofcode.aoc2022.day07;
 
 import java.util.List;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/7
@@ -16,7 +16,7 @@ public class NoSpaceLeftOnDevice {
         System.out.println("\n### Day 7: No Space Left On Device ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day07/input";
+        final String filePath = "aoc2022/day07/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
@@ -32,7 +32,7 @@ public class NoSpaceLeftOnDevice {
 
         long part1 = root.sumOfDirectoriesWithSizeBelow(100_000);
         System.out.println("-> Part1: " + part1);
-        
+
         long part2 = root.sizeOfSmallestDirectorieWithSizeBiggerThan(requiredSpace);
         System.out.println("-> Part2: " + part2);
     }

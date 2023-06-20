@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day08;
+package adventofcode.aoc2022.day08;
 
 import java.util.HashSet;
 import java.util.List;
@@ -45,7 +45,7 @@ public record Forest(List<TreeRow> trees) {
                 }
             }
         }
-        
+
         // check top to bottom
         for (int i = 0 ; i < this.height(); i++) {
             int tallestTree = -1;
@@ -104,7 +104,7 @@ public record Forest(List<TreeRow> trees) {
      * @return  The highest Scenic Score in this {@code Forest}.
      */
     public int highestScenicScore() {
-        
+
         int highestScore = -1;
 
         for (int i = 0; i < this.height(); i++) {

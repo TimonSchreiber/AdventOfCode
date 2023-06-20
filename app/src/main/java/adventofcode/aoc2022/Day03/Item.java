@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day03;
+package adventofcode.aoc2022.day03;
 
 /**
  * Item

@@ -1,6 +1,6 @@
-package adventofcode.aoc2022.Day06;
+package adventofcode.aoc2022.day06;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/6
@@ -13,7 +13,7 @@ public class TuningTrouble {
     public static void main(String[] args) {
         System.out.println("\n### Day 6: Tuning Trouble ###\n");
 
-        final String filePath = "aoc2022/Day06/input";
+        final String filePath = "aoc2022/day06/input";
 
         String input = ReadInput.toSingleStringFrom(filePath);
 

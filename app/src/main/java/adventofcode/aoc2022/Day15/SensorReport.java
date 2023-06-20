@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day15;
+package adventofcode.aoc2022.day15;
 
 import adventofcode.util.geometry.Point2D;
 

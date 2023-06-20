@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day09;
+package adventofcode.aoc2022.day09;
 
 import adventofcode.util.geometry.Direction;
 

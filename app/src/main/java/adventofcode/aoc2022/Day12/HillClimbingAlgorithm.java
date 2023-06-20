@@ -1,8 +1,8 @@
-package adventofcode.aoc2022.Day12;
+package adventofcode.aoc2022.day12;
 
 import java.util.List;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/12
@@ -14,7 +14,7 @@ public class HillClimbingAlgorithm {
         System.out.println("\n### Day 12: Hill Climbing Algorithm ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day12/input";
+        final String filePath = "aoc2022/day12/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

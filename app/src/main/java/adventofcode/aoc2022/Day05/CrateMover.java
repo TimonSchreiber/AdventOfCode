@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day05;
+package adventofcode.aoc2022.day05;
 
 import java.util.ArrayDeque;
 
@@ -32,7 +32,7 @@ public sealed interface CrateMover permits CrateMover9000, CrateMover9001 {
         }
 
         while (!crane.isEmpty()) {
-            
+
             Crate crate = crane.pop();
 
             target.offerFirst(crate);

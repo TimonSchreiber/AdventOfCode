@@ -1,9 +1,9 @@
-package adventofcode.aoc2022.Day11;
+package adventofcode.aoc2022.day11;
 
 import java.util.List;
 import java.util.function.LongUnaryOperator;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/11
@@ -15,7 +15,7 @@ public class MonkeyInTheMiddle {
         System.out.println("\n### Day 11: Monkey in the Middle ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day11/input";
+        final String filePath = "aoc2022/day11/input";
 
         final String input = ReadInput.toSingleStringFrom(filePath);
 

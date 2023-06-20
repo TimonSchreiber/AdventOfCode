@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day07;
+package adventofcode.aoc2022.day07;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +17,7 @@ public class FileSystemParser {
     private final static String ROOT             = "/";
     private final static String LIST             = "ls";
     private final static String DIRECTORY        = "dir";
-    
+
     public static Directory parse(List<String> list) {
         fileSystem = new FileSystem();
 
@@ -60,7 +60,7 @@ public class FileSystemParser {
         // the line starts with a number -> fileSize and fileName
         long fileSize = Long.parseLong(line.get(0));
         String fileName = line.get(1);
-    
+
         File file = new File(fileSize, fileName);
         fileSystem.add(file);
     }
@@ -77,5 +77,5 @@ public class FileSystemParser {
     private static void invalidCommand(final List<String> line) {
         throw new IllegalArgumentException("Invalid command: " + line.stream().collect(Collectors.joining(" ")));
     }
-    
+
 }

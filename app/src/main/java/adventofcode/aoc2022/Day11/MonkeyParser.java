@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day11;
+package adventofcode.aoc2022.day11;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

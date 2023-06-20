@@ -1,8 +1,8 @@
-package adventofcode.aoc2022.Day14;
+package adventofcode.aoc2022.day14;
 
 import java.util.List;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/14
@@ -14,7 +14,7 @@ public class RegolithReservoir {
         System.out.println("\n### Day 14: Regolith Reservoir ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day14/input";
+        final String filePath = "aoc2022/day14/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

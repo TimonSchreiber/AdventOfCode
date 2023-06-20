@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day12;
+package adventofcode.aoc2022.day12;
 
 import java.util.List;
 import java.util.Map;
@@ -15,7 +15,7 @@ import adventofcode.util.geometry.Point2D;
 public class HeightMapParser {
 
     private static Map<Point2D, Height> heightMap;
-    
+
     public static HeightMap parse(List<String> list) {
         heightMap = new TreeMap<>();
 

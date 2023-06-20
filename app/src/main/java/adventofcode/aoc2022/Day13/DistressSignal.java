@@ -1,10 +1,10 @@
-package adventofcode.aoc2022.Day13;
+package adventofcode.aoc2022.day13;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/13
@@ -21,7 +21,7 @@ public class DistressSignal {
         System.out.println("\n### Day 13: Distress Signal ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day13/input";
+        final String filePath = "aoc2022/day13/input";
 
         final String input = ReadInput.toSingleStringFrom(filePath);
 
@@ -42,7 +42,7 @@ public class DistressSignal {
                 .map(i -> i+1)
                 .sum();
     }
-    
+
     // multiply the indices of the divider Packets
     private static int dividerPackets(List<ListValue> listValues) {
         return IntStream.range(0, listValues.size())

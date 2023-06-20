@@ -1,11 +1,11 @@
-package adventofcode.aoc2022.Day16;
+package adventofcode.aoc2022.day16;
 
 // import java.time.Duration;
 // import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/16
@@ -17,7 +17,7 @@ public class ProboscideaVolcanium {
         System.out.println("\n### Day 16: Proboscidea Volcanium ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day16/test";
+        final String filePath = "aoc2022/day16/test";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

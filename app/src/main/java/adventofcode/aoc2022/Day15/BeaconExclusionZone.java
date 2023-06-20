@@ -1,11 +1,11 @@
-package adventofcode.aoc2022.Day15;
+package adventofcode.aoc2022.day15;
 
 import java.util.List;
 import java.util.Map;
 // import java.util.Set;
 // import java.util.stream.Collectors;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 import adventofcode.util.geometry.Point2D;
 
 /**
@@ -18,7 +18,7 @@ public class BeaconExclusionZone {
         System.out.println("\n### Day 15: Beacon Exclusion Zone ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day15/input";
+        final String filePath = "aoc2022/day15/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

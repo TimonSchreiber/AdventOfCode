@@ -1,19 +1,19 @@
-package adventofcode.aoc2022.Day01;
+package adventofcode.aoc2022.day01;
 
 import java.util.Comparator;
 import java.util.List;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/1
  */
 public class CalorieCounting {
-    
+
     public static void main(String[] args) {
         System.out.println("\n### Day 1: Colorie Counting ###\n");
 
-        final String filePath = "aoc2022/Day01/input";
+        final String filePath = "aoc2022/day01/input";
 
         final String input = ReadInput.toSingleStringFrom(filePath);
 
@@ -21,7 +21,7 @@ public class CalorieCounting {
 
         int part1 = getMostCalories(caloriesPerElf);
         System.out.println("-> Part1: " + part1);
-        
+
         int part2 = sumOfTopN(caloriesPerElf, 3);
         System.out.println("-> Part2: " + part2);
     }

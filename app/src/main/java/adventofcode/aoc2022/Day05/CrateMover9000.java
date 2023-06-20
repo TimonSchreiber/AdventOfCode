@@ -1,9 +1,9 @@
-package adventofcode.aoc2022.Day05;
+package adventofcode.aoc2022.day05;
 
 /**
  * The CrateMover9000 reverses the order in which the crates are stacked.
  * Moving 3 Crates form Stack 1 to 3 means:
- * 
+ *
  *                       [Z]
  * [D]                   [N]
  * [N] [C]           [C] [D]

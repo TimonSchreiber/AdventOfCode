@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day01;
+package adventofcode.aoc2022.day01;
 
 /**
  * Calorie

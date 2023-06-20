@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day08;
+package adventofcode.aoc2022.day08;
 
 /**
  * Representation of a Tree chracteried by its height (0 to 9).

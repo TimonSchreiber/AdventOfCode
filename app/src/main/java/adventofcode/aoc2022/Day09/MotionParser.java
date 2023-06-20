@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day09;
+package adventofcode.aoc2022.day09;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import adventofcode.util.geometry.Direction;
  * Motion Parser
  */
 public class MotionParser {
-    
+
     public static List<Motion> parse(List<String> list) {
         return list.stream().map(MotionParser::parseMotion).toList();
     }

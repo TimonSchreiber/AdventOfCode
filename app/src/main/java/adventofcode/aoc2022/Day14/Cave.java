@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day14;
+package adventofcode.aoc2022.day14;
 
 import java.util.List;
 import java.util.Set;

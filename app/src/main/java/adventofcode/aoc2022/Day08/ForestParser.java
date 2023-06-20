@@ -1,10 +1,10 @@
-package adventofcode.aoc2022.Day08;
+package adventofcode.aoc2022.day08;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ForestParser {
-    
+
     public static Forest parse(List<String> list) {
         return list.stream()
                 .map(ForestParser::parse)

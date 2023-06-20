@@ -1,8 +1,8 @@
-package adventofcode.aoc2022.Day09;
+package adventofcode.aoc2022.day09;
 
 import java.util.List;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 import adventofcode.util.geometry.Point2D;
 
 /**
@@ -14,7 +14,7 @@ public class RopeBridge {
         System.out.println("\n### Day 9: Rope Bridge ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/Day09/input";
+        final String filePath = "aoc2022/day09/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

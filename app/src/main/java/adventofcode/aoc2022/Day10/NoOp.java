@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day10;
+package adventofcode.aoc2022.day10;
 
 /**
  * NoOp

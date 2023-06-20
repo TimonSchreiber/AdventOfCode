@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day12;
+package adventofcode.aoc2022.day12;
 
 import java.util.Map;
 

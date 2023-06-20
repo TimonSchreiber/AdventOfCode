@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day16;
+package adventofcode.aoc2022.day16;
 
 import java.util.ArrayList;
 import java.util.Comparator;

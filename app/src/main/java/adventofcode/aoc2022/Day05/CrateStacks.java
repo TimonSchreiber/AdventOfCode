@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day05;
+package adventofcode.aoc2022.day05;
 
 import java.util.Map;
 import java.util.stream.Collectors;

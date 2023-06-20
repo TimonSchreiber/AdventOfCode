@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day13;
+package adventofcode.aoc2022.day13;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +73,7 @@ public class ValueParser {
     }
 
     // return the index of the matching closing bracket when this string starts
-    // with an open bracket 
+    // with an open bracket
     private static int indexOfClosingBracket(String string) {
         // assume string starts with a '[', otherwise this methid shouidl not be called!
         int bracketCounter = 0;

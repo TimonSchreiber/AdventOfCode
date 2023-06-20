@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day06;
+package adventofcode.aoc2022.day06;
 
 /**
  * Marker

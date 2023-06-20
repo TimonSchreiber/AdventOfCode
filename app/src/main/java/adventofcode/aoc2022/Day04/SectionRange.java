@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day04;
+package adventofcode.aoc2022.day04;
 
 /**
  * Section Range

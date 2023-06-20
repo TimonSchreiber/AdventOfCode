@@ -1,4 +1,4 @@
-package adventofcode.util.IO;
+package adventofcode.util.io;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 public class ReadInput {
 
     private static final String LINE_BREAK = "\n";
-    
+
     public static List<String> toListofStringsFrom(String filePath) {
 
         return ReadInput.lines(Path.of("app/src/main/resources/", filePath))

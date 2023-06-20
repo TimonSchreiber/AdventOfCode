@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day10;
+package adventofcode.aoc2022.day10;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class Screen {
 
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
-                
+
                 int register = registerValues.get(y*WIDTH + x);
                 int spriteX = register % 40;
 

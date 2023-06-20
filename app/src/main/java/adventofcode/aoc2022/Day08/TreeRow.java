@@ -1,4 +1,4 @@
-package adventofcode.aoc2022.Day08;
+package adventofcode.aoc2022.day08;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ public record TreeRow(List<Tree> treeRow) {
     public int size() {
         return this.treeRow.size();
     }
-    
+
     public Tree get(int index) {
         return this.treeRow.get(index);
     }

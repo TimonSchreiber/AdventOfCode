@@ -1,9 +1,9 @@
-package adventofcode.aoc2022.Day05;
+package adventofcode.aoc2022.day05;
 
 /**
  * The CrateMover9001 keeps the order in which the crates are stacked.
  * Moving 3 Crates form Stack 1 to 3 means:
- * 
+ *
  *                       [D]
  * [D]                   [N]
  * [N] [C]           [C] [Z]

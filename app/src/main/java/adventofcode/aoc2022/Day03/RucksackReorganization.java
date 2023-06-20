@@ -1,9 +1,9 @@
-package adventofcode.aoc2022.Day03;
+package adventofcode.aoc2022.day03;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
-import adventofcode.util.IO.ReadInput;
+import adventofcode.util.io.ReadInput;
 
 /**
  * https://adventofcode.com/2022/day/3
@@ -13,7 +13,7 @@ public class RucksackReorganization {
     public static void main(String[] args) {
         System.out.println("\n### Day 3: Rucksack Reorganisation ###\n");
 
-        final String filePath = "aoc2022/Day03/input";
+        final String filePath = "aoc2022/day03/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
@@ -22,7 +22,7 @@ public class RucksackReorganization {
 
         int part1 = findCommonItem(compartments);
         System.out.println("-> Part1: " + part1);
-        
+
         int part2 = findBadge(rucksacks);
         System.out.println("-> Part2: " + part2);
     }
