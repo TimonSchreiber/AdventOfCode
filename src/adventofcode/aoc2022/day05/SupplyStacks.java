@@ -13,7 +13,7 @@ public class SupplyStacks {
 
         System.out.println("\n### Day 5: Supply Stacks ###\n");
 
-        final String filePath = "aoc2022/day05/input";
+        final String filePath = "resources/aoc2022/day05/input";
 
         String input = ReadInput.toSingleStringFrom(filePath);
 

@@ -12,7 +12,7 @@ public class TreetopTreeHouse {
         System.out.println("\n### Day 8: Treetop Tree House ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/day08/input";
+        final String filePath = "resources/aoc2022/day08/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

@@ -13,7 +13,7 @@ public class CalorieCounting {
     public static void main(String[] args) {
         System.out.println("\n### Day 1: Colorie Counting ###\n");
 
-        final String filePath = "aoc2022/day01/input";
+        final String filePath = "resources/aoc2022/day01/input";
 
         final String input = ReadInput.toSingleStringFrom(filePath);
 

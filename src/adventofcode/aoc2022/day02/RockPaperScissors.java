@@ -27,7 +27,7 @@ public class RockPaperScissors {
     public static void main(String[] args) {
         System.out.println("\n### Day 2: Rock-Paper-Scissors ###\n");
 
-        final String fielPath = "aoc2022/day02/input";
+        final String fielPath = "resources/aoc2022/day02/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(fielPath);
 

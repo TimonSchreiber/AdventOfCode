@@ -15,7 +15,7 @@ public class MonkeyInTheMiddle {
         System.out.println("\n### Day 11: Monkey in the Middle ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/day11/input";
+        final String filePath = "resources/aoc2022/day11/input";
 
         final String input = ReadInput.toSingleStringFrom(filePath);
 

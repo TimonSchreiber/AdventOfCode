@@ -14,7 +14,7 @@ public class CathodeRayTube {
         System.out.println("\n### Day 10: Cathode-Ray Tube ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/day10/input";
+        final String filePath = "resources/aoc2022/day10/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

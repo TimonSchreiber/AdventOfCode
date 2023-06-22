@@ -14,7 +14,7 @@ public class RegolithReservoir {
         System.out.println("\n### Day 14: Regolith Reservoir ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/day14/input";
+        final String filePath = "resources/aoc2022/day14/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

@@ -13,7 +13,7 @@ public class CampCleanup {
         System.out.println("\n### Day 4: Camp Cleanup ###\n");
 
         // file path as String
-        final String filePath = "aoc2022/day04/input";
+        final String filePath = "resources/aoc2022/day04/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
