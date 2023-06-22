@@ -13,7 +13,7 @@ public class RucksackReorganization {
     public static void main(String[] args) {
         System.out.println("\n### Day 3: Rucksack Reorganisation ###\n");
 
-        final String filePath = "resources/aoc2022/day03/input";
+        final String filePath = "aoc2022/day03/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

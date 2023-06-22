@@ -13,7 +13,7 @@ public class SonarSweep {
     public static void main(String[] args) {
         System.out.println("\n### Day 1: Sonar Sweep ###\n");
 
-        final String filePath = "resources/aoc2021/day01/input";
+        final String filePath = "aoc2021/day01/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

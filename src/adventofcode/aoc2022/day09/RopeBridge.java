@@ -14,7 +14,7 @@ public class RopeBridge {
         System.out.println("\n### Day 9: Rope Bridge ###\n");
 
         // file path as String
-        final String filePath = "resources/aoc2022/day09/input";
+        final String filePath = "aoc2022/day09/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

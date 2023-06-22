@@ -14,7 +14,7 @@ public class HillClimbingAlgorithm {
         System.out.println("\n### Day 12: Hill Climbing Algorithm ###\n");
 
         // file path as String
-        final String filePath = "resources/aoc2022/day12/input";
+        final String filePath = "aoc2022/day12/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

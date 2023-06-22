@@ -13,17 +13,21 @@ import java.util.stream.Stream;
  */
 public class ReadInput {
 
+    /**
+     *
+     */
+    private static final String RESOURCES = "resources/";
     private static final String LINE_BREAK = "\n";
 
     public static List<String> toListofStringsFrom(String filePath) {
 
-        return ReadInput.lines(Path.of("app/src/main/resources/", filePath))
+        return ReadInput.lines(Path.of(RESOURCES, filePath))
                 .toList();
     }
 
     public static String toSingleStringFrom(String filePath) {
 
-        return ReadInput.lines(Path.of("app/src/main/resources/", filePath))
+        return ReadInput.lines(Path.of(RESOURCES, filePath))
                 .collect(Collectors.joining(LINE_BREAK));
     }
 

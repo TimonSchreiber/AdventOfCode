@@ -21,7 +21,7 @@ public class DistressSignal {
         System.out.println("\n### Day 13: Distress Signal ###\n");
 
         // file path as String
-        final String filePath = "resources/aoc2022/day13/input";
+        final String filePath = "aoc2022/day13/input";
 
         final String input = ReadInput.toSingleStringFrom(filePath);
 

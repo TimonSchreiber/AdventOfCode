@@ -17,7 +17,7 @@ public class ProboscideaVolcanium {
         System.out.println("\n### Day 16: Proboscidea Volcanium ###\n");
 
         // file path as String
-        final String filePath = "resources/aoc2022/day16/test";
+        final String filePath = "aoc2022/day16/test";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

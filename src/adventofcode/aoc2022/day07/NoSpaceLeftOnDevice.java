@@ -16,7 +16,7 @@ public class NoSpaceLeftOnDevice {
         System.out.println("\n### Day 7: No Space Left On Device ###\n");
 
         // file path as String
-        final String filePath = "resources/aoc2022/day07/input";
+        final String filePath = "aoc2022/day07/input";
 
         final List<String> input = ReadInput.toListofStringsFrom(filePath);
 

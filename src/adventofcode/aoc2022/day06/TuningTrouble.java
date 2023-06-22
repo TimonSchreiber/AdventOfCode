@@ -13,7 +13,7 @@ public class TuningTrouble {
     public static void main(String[] args) {
         System.out.println("\n### Day 6: Tuning Trouble ###\n");
 
-        final String filePath = "resources/aoc2022/day06/input";
+        final String filePath = "aoc2022/day06/input";
 
         String input = ReadInput.toSingleStringFrom(filePath);
 
