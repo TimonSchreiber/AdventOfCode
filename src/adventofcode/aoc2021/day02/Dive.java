@@ -1,5 +1,9 @@
 package adventofcode.aoc2021.day02;
 
+import java.util.List;
+
+import adventofcode.util.io.ReadInput;
+
 /**
  * https://adventofcode.com/2021/day/2
  */
@@ -8,30 +12,21 @@ public class Dive {
     public static void main(String[] args) {
         System.out.println("\n### Day 1: Dive! ###\n");
 
-        final String filePath = "resources/aoc2021/day02/test";
+        final String filePath = "aoc2021/day02/input";
 
-        // final List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListofStringsFrom(filePath);
 
-        // final List<Integer> depthMeasurement = MeasurementParser.parse(input);
+        final List<Instruction> instructions = InstructionParser.parse(input);
 
-        // long part1 = countMeasurementIncrease(depthMeasurement, 1);
-        // System.out.println("-> Part1: " + part1);   // 1139
+        Submarine submarine = new Submarine(new Position(0, 0));
+        submarine.follow(instructions);
+        long part1 = submarine.calcSolution();
+        System.out.println("-> Part1: " + part1);   // 2187380
 
-        // long part2 = countMeasurementIncrease(depthMeasurement, 3);
-        // System.out.println("-> Part2: " + part2);   // 1103
+        submarine = new Submarine(new PositionWithAim(0, 0, 0));
+        submarine.follow(instructions);
+        long part2 = submarine.calcSolution();
+        System.out.println("-> Part2: " + part2);   // 2086357770
     }
-
-    // private static long countMeasurementIncrease(List<Integer> depthMeasurement, int windowSize) {
-    //     return IntStream.range(windowSize, depthMeasurement.size())
-    //             .filter(i -> sumOfWindow(depthMeasurement, windowSize, (i-1)) < sumOfWindow(depthMeasurement, windowSize, i))
-    //             .count();
-    // }
-
-    // private static int sumOfWindow(List<Integer> depthMeasurement, int windowSize, int index) {
-    //     return depthMeasurement.subList(index - windowSize  + 1 , index + 1)
-    //             .stream()
-    //             .mapToInt(Integer::valueOf)
-    //             .sum();
-    // }
 
 }
