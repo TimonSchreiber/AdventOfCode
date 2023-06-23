@@ -26,6 +26,15 @@ public class BinaryDiagnostic {
         System.out.println("-> Part2: " + part2);   // 903810
     }
 
+    /**
+     * Calculate the power supply by finding the gamma and epsilon rate in the
+     * diagnostic report.<p>
+     * Find the most/least common bit in the corresponding position of all binary
+     * numbers for the gamma/epsilon rate
+     * @param list      A list of binary numbers.
+     * @param width     The width of the binary numbers.
+     * @return          The product of the gamma and epsilon rate.
+     */
     private static int calcPowerConsumption(List<Integer> list, int width) {
         int gammaRate = 0;
         int epsilonRate = 0;
@@ -41,6 +50,13 @@ public class BinaryDiagnostic {
         return gammaRate * epsilonRate;
     }
 
+    /**
+     * Find the life support rating by multiplying the oxygen generator rating
+     * and the co2 scrubber rating.
+     * @param list
+     * @param width
+     * @return
+     */
     private static int findLifeSupportRating(List<Integer> list, int width) {
         List<Integer> oxygen = List.copyOf(list);
         List<Integer> co2 = List.copyOf(list);
@@ -53,7 +69,9 @@ public class BinaryDiagnostic {
             int mask = (int) Math.pow(2, j);
             int bit = mostCommonBit(oxygen, mask);
 
-            oxygen = oxygen.stream().filter(i -> Integer.signum(i & mask) == bit).toList();
+            oxygen = oxygen.stream()
+                    .filter(i -> Integer.signum(i & mask) == bit)
+                    .toList();
 
             if (oxygen.size() == 1) {
                 oxygenRating = oxygen.get(0);
@@ -66,7 +84,9 @@ public class BinaryDiagnostic {
             int mask = (int) Math.pow(2, j);
             int bit = mostCommonBit(co2, mask);
 
-            co2 = co2.stream().filter(i -> Integer.signum(i & mask) != bit).toList();
+            co2 = co2.stream()
+                    .filter(i -> Integer.signum(i & mask) != bit)
+                    .toList();
 
             if (co2.size() == 1) {
                 co2Rating = co2.get(0);
@@ -77,6 +97,15 @@ public class BinaryDiagnostic {
         return oxygenRating * co2Rating;
     }
 
+    /**
+     * Find the most common bit value at a certain position specified by the
+     * mask. If {@code 0} and {@code 1} are both equally common, take the
+     * {@code 1}.
+     * @param list      A list of binary numbers.
+     * @param mask      A bit mask
+     * @return          {@code 1} if at least half the binary numbers have a
+     *                  1 at the specified position, otherwise {@code 0}.
+     */
     private static int mostCommonBit(List<Integer> list, int mask) {
         int sum = list.stream()
                 .mapToInt(i -> i & mask)
