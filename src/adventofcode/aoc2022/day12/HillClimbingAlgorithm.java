@@ -11,7 +11,7 @@ public class HillClimbingAlgorithm {
 
     public static void main(String[] args) {
 
-        System.out.println("\n### Day 12: Hill Climbing Algorithm ###\n");
+        System.out.println("\n--- Day 12: Hill Climbing Algorithm ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day12/input";

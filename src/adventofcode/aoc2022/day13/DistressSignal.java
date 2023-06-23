@@ -18,7 +18,7 @@ public class DistressSignal {
 
     public static void main(String[] args) {
 
-        System.out.println("\n### Day 13: Distress Signal ###\n");
+        System.out.println("\n--- Day 13: Distress Signal ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day13/input";

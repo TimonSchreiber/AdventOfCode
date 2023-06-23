@@ -10,7 +10,7 @@ import adventofcode.util.io.ReadInput;
 public class CampCleanup {
 
     public static void main(String[] args) {
-        System.out.println("\n### Day 4: Camp Cleanup ###\n");
+        System.out.println("\n--- Day 4: Camp Cleanup ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day04/input";

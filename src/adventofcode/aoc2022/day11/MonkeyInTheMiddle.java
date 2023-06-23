@@ -12,7 +12,7 @@ public class MonkeyInTheMiddle {
 
     public static void main(String[] args) {
 
-        System.out.println("\n### Day 11: Monkey in the Middle ###\n");
+        System.out.println("\n--- Day 11: Monkey in the Middle ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day11/input";

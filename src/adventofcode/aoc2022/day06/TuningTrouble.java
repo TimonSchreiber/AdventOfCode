@@ -11,7 +11,7 @@ public class TuningTrouble {
     private static final int START_OF_MESSAGE_SIZE = 14;
 
     public static void main(String[] args) {
-        System.out.println("\n### Day 6: Tuning Trouble ###\n");
+        System.out.println("\n--- Day 6: Tuning Trouble ---\n");
 
         final String filePath = "aoc2022/day06/input";
 

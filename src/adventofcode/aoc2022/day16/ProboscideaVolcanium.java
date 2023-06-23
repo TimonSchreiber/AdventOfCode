@@ -14,7 +14,7 @@ public class ProboscideaVolcanium {
 
     public static void main(String[] args) {
 
-        System.out.println("\n### Day 16: Proboscidea Volcanium ###\n");
+        System.out.println("\n--- Day 16: Proboscidea Volcanium ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day16/test";

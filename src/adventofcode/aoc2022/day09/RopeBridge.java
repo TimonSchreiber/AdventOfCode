@@ -11,7 +11,7 @@ import adventofcode.util.geometry.Point2D;
 public class RopeBridge {
     public static void main(String[] args) {
 
-        System.out.println("\n### Day 9: Rope Bridge ###\n");
+        System.out.println("\n--- Day 9: Rope Bridge ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day09/input";

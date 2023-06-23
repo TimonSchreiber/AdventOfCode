@@ -15,7 +15,7 @@ public class BeaconExclusionZone {
 
     public static void main(String[] args) {
 
-        System.out.println("\n### Day 15: Beacon Exclusion Zone ###\n");
+        System.out.println("\n--- Day 15: Beacon Exclusion Zone ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day15/input";

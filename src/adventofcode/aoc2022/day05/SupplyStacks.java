@@ -11,7 +11,7 @@ public class SupplyStacks {
 
     public static void main(String[] args) {
 
-        System.out.println("\n### Day 5: Supply Stacks ###\n");
+        System.out.println("\n--- Day 5: Supply Stacks ---\n");
 
         final String filePath = "aoc2022/day05/input";
 

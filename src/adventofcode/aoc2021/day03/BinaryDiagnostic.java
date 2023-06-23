@@ -9,7 +9,7 @@ import adventofcode.util.io.ReadInput;
  */
 public class BinaryDiagnostic {
     public static void main(String[] args) {
-        System.out.println("\n### Day 3: Binary Diagnostic ###\n");
+        System.out.println("\n--- Day 3: Binary Diagnostic ---\n");
 
         final String filePath = "aoc2021/day03/input";
 

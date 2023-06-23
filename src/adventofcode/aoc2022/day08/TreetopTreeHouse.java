@@ -9,7 +9,7 @@ import adventofcode.util.io.ReadInput;
  */
 public class TreetopTreeHouse {
     public static void main(String[] args) {
-        System.out.println("\n### Day 8: Treetop Tree House ###\n");
+        System.out.println("\n--- Day 8: Treetop Tree House ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day08/input";

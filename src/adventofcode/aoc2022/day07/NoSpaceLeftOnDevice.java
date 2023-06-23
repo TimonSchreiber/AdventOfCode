@@ -13,7 +13,7 @@ public class NoSpaceLeftOnDevice {
     private static final int NEEDED_SPACE = 30_000_000;
 
     public static void main(String[] args) {
-        System.out.println("\n### Day 7: No Space Left On Device ###\n");
+        System.out.println("\n--- Day 7: No Space Left On Device ---\n");
 
         // file path as String
         final String filePath = "aoc2022/day07/input";

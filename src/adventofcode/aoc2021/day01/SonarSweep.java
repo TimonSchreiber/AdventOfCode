@@ -11,7 +11,7 @@ import adventofcode.util.io.ReadInput;
 public class SonarSweep {
 
     public static void main(String[] args) {
-        System.out.println("\n### Day 1: Sonar Sweep ###\n");
+        System.out.println("\n--- Day 1: Sonar Sweep ---\n");
 
         final String filePath = "aoc2021/day01/input";
 

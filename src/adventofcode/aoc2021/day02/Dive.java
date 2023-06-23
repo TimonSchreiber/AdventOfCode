@@ -10,7 +10,7 @@ import adventofcode.util.io.ReadInput;
 public class Dive {
 
     public static void main(String[] args) {
-        System.out.println("\n### Day 2: Dive! ###\n");
+        System.out.println("\n--- Day 2: Dive! ---\n");
 
         final String filePath = "aoc2021/day02/input";
 
