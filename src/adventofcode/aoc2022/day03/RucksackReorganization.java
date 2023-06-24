@@ -15,7 +15,7 @@ public class RucksackReorganization {
 
         final String filePath = "aoc2022/day03/input";
 
-        final List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListOfStringsFrom(filePath);
 
         final List<Compartments> compartments = RucksackParser.parseCompartments(input);
         final List<Rucksack> rucksacks = RucksackParser.parseRucksacks(input);

@@ -16,7 +16,7 @@ public class HillClimbingAlgorithm {
         // file path as String
         final String filePath = "aoc2022/day12/input";
 
-        final List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListOfStringsFrom(filePath);
 
         HeightMap heightMap = HeightMapParser.parse(input);
 

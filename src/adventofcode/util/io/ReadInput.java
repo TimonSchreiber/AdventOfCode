@@ -19,7 +19,7 @@ public class ReadInput {
     private static final String RESOURCES = "resources/";
     private static final String LINE_BREAK = "\n";
 
-    public static List<String> toListofStringsFrom(String filePath) {
+    public static List<String> toListOfStringsFrom(String filePath) {
 
         return ReadInput.lines(Path.of(RESOURCES, filePath))
                 .toList();

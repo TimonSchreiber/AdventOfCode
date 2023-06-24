@@ -29,7 +29,7 @@ public class RockPaperScissors {
 
         final String fielPath = "aoc2022/day02/input";
 
-        final List<String> input = ReadInput.toListofStringsFrom(fielPath);
+        final List<String> input = ReadInput.toListOfStringsFrom(fielPath);
 
         final List<Strategy> strategyGuide = StrategyGuideParser.parse(input);
 

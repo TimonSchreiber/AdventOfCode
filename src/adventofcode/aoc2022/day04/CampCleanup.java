@@ -15,7 +15,7 @@ public class CampCleanup {
         // file path as String
         final String filePath = "aoc2022/day04/input";
 
-        final List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListOfStringsFrom(filePath);
 
         final List<AssignmentPair> assignmentPairs = AssignmentParser.parse(input);
 

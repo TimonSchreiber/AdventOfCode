@@ -13,7 +13,7 @@ public class BinaryDiagnostic {
 
         final String filePath = "aoc2021/day03/input";
 
-        final List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListOfStringsFrom(filePath);
 
         final int width = input.get(0).length();
 

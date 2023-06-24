@@ -14,7 +14,7 @@ public class Dive {
 
         final String filePath = "aoc2021/day02/input";
 
-        final List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListOfStringsFrom(filePath);
 
         final List<Instruction> instructions = InstructionParser.parse(input);
 

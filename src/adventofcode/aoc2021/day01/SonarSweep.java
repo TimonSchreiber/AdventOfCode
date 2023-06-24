@@ -15,7 +15,7 @@ public class SonarSweep {
 
         final String filePath = "aoc2021/day01/input";
 
-        final List<String> input = ReadInput.toListofStringsFrom(filePath);
+        final List<String> input = ReadInput.toListOfStringsFrom(filePath);
 
         final List<Integer> depthMeasurement = MeasurementParser.parse(input);
 
