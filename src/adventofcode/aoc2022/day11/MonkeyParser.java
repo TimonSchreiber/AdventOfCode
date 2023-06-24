@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 public class MonkeyParser {
 
     private static final String DOUBLE_LINEBREAK = "\n\n";
-    public static final Pattern MONKEY_PATTERN =
+    private static final Pattern MONKEY_PATTERN =
         Pattern.compile("""
                 Monkey (\\d+):\\s+\
                 Starting items: (.+)\\s+\
