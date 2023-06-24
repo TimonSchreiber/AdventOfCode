@@ -5,6 +5,11 @@ import java.util.stream.IntStream;
 
 public record LineSegment(Point p1, Point p2) {
 
+    /**
+     * Only returns a correct List of Points when the LineSegment is either
+     * strictly vertical, horizontal or diagonal with a 45° angel.
+     * @return
+     */
     public List<Point> line() {
         int deltaX = p2.x() - p1.x();
         int deltaY = p2.y() - p1.y();

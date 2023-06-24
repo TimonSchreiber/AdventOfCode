@@ -13,9 +13,16 @@ public class VentMap {
         this.lines = lines;
     }
 
-    public long countOverlapp(boolean diagonal) {
+    /**
+     * Returns the number of Points which overlapp in this VentMap.
+     * Only looking at horizontal/vertical LineSegments or additionally with
+     * diagonal LineSegments.
+     * @param withDiagonals With or without diagonal LineSegments.
+     * @return              Number of overlapping Points.
+     */
+    public long countOverlapp(boolean withDiagonals) {
         Map<Point, Long> pointFrequency = lines.stream()
-                .filter(line -> diagonal || horizontalAndVertical(line))
+                .filter(line -> withDiagonals || horizontalAndVertical(line))
                 .flatMap(line -> line.line().stream())
                 .collect(
                     Collectors.groupingBy(
