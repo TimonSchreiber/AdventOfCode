@@ -3,7 +3,7 @@ package adventofcode.aoc2021.day04;
 import adventofcode.util.io.ReadInput;
 
 /**
- * https://adventofcode.com/2021/day/3
+ * https://adventofcode.com/2021/day/4
  */
 public class GiantSquid {
     public static void main(String[] args) {
