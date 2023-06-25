@@ -14,9 +14,9 @@ public class SchoolOfFish {
         Long[] array = new Long[9];
         Arrays.fill(array, 0L);
 
-        // group the fish together
+        // group the fish together by life stage
         Arrays.stream(string.split(","))
-                .map(Integer::valueOf)
+                .mapToInt(Integer::valueOf)
                 .forEach(i -> array[i]++);
 
         // wrap the Array into a mutable ArrayList
