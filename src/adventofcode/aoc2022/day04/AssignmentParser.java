@@ -1,7 +1,8 @@
 package adventofcode.aoc2022.day04;
 
-import java.util.Arrays;
 import java.util.List;
+
+import adventofcode.util.parser.Parser;
 
 /**
  * Assignment Parser
@@ -13,10 +14,7 @@ public class AssignmentParser {
     }
 
     public static AssignmentPair parse(String string) {
-        final List<Integer> sections = Arrays.stream(string.split("[,-]"))
-                .mapToInt(Integer::parseInt)
-                .boxed()
-                .toList();
+        final List<Integer> sections = Parser.parseToIntList(string, "[,-]");
 
         return new AssignmentPair(
             new SectionRange(sections.get(0), sections.get(1)),

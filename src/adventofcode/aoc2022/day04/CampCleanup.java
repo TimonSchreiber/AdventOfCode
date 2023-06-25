@@ -20,10 +20,10 @@ public class CampCleanup {
         final List<AssignmentPair> assignmentPairs = AssignmentParser.parse(input);
 
         long part1 = numberOfAssignmentsFullyContainingOneAnother(assignmentPairs);
-        System.out.println("-> Part1: " + part1);
+        System.out.println("-> Part1: " + part1);   // 526
 
         long part2 = numberOfAssignmentsOverlapping(assignmentPairs);
-        System.out.println("-> Part2: " + part2);
+        System.out.println("-> Part2: " + part2);   // 886
     }
 
    /**

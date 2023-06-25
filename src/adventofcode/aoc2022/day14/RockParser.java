@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import adventofcode.util.geometry.Point2D;
+import adventofcode.util.parser.Parser;
 
 public class RockParser {
 
@@ -34,10 +35,11 @@ public class RockParser {
     }
 
     private static Point2D parsePoint2D(String string) {
-        List<Integer> coordinates = Arrays.stream(string.split(","))
-                .mapToInt(Integer::parseInt)
-                .boxed()
-                .toList();
+        List<Integer> coordinates = Parser.parseToIntList(string, ",");
+
+        if (coordinates.size() != 2) {
+            throw new IllegalStateException("Invalid input: " + string);
+        }
 
         return new Point2D(coordinates.get(0), coordinates.get(1));
     }

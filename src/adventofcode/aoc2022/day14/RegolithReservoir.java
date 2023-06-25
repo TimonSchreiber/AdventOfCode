@@ -25,14 +25,14 @@ public class RegolithReservoir {
         cave.fillSandBottomLess();
         cave.print();
         int part1 = cave.sand().size();
-        System.out.println("-> Part1: " + part1);
+        System.out.println("-> Part1: " + part1);   // 774
 
         cave.clearSand();
 
         cave.fillSandFloor();
         cave.print();
         int part2 = cave.sand().size();
-        System.out.println("-> Part2: " + part2);
+        System.out.println("-> Part2: " + part2);   // 22499
     }
 
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import adventofcode.util.parser.Parser;
+
 public class SchoolOfFish {
 
     // A List of fish grouped by the 9 stages of laternfish life.
@@ -15,8 +17,8 @@ public class SchoolOfFish {
         Arrays.fill(array, 0L);
 
         // group the fish together by life stage
-        Arrays.stream(string.split(","))
-                .mapToInt(Integer::valueOf)
+        Parser.parseToIntList(string, ",")
+                .stream()
                 .forEach(i -> array[i]++);
 
         // wrap the Array into a mutable ArrayList

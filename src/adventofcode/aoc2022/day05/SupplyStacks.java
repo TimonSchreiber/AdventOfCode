@@ -30,10 +30,10 @@ public class SupplyStacks {
         final List<Procedure> procedures = ProcedureParser.parse(input2);
 
         String part1 = moveAll(crateStacks1, procedures, new CrateMover9000());
-        System.out.println("-> Part1: " + part1);
+        System.out.println("-> Part1: " + part1);   // VCTFTJQCG
 
         String part2 = moveAll(crateStacks2, procedures, new CrateMover9001());
-        System.out.println("-> Part2: " + part2);
+        System.out.println("-> Part2: " + part2);   // GCFGLDNJZ
     }
 
     private static String moveAll(CrateStacks crateStacks, List<Procedure> procedures, CrateMover crane) {

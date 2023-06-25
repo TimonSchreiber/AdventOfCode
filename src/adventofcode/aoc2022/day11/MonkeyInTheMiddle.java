@@ -26,7 +26,7 @@ public class MonkeyInTheMiddle {
         KeepAway game1 = new KeepAway(monkeys, x -> x/3);
         game1.play(20);
         long part1 = game1.twoMostActiveMonkeys();
-        System.out.println("-> Part1: " + part1);
+        System.out.println("-> Part1: " + part1);   // 57838
 
         // Part 2
         monkeys = MonkeyParser.parse(input);
@@ -34,7 +34,7 @@ public class MonkeyInTheMiddle {
         KeepAway game2 = new KeepAway(monkeys, reliefOperation);
         game2.play(10_000);
         long part2 = game2.twoMostActiveMonkeys();
-        System.out.println("-> Part2: " + part2);
+        System.out.println("-> Part2: " + part2);   // 15050382231
     }
 
     private static LongUnaryOperator productOfTestDivisors(List<Monkey> monkeys) {
