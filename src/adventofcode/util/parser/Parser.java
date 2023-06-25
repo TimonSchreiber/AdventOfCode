@@ -2,6 +2,7 @@ package adventofcode.util.parser;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * Class for common parsing operations.
@@ -17,8 +18,8 @@ public class Parser {
      * @return          A List of Integer
      */
     public static List<Integer> parseToIntList(String string, String delimiter) {
-        return Arrays.stream(string.split(delimiter))
-                .map(Integer::valueOf)
+        return Parser.parseToIntStream(string, delimiter)
+                .boxed()
                 .toList();
     }
 
@@ -29,9 +30,19 @@ public class Parser {
      * @return          An Array of Integer
      */
     public static int[] parseToIntArray(String string, String delimiter) {
-        return Arrays.stream(string.split(delimiter))
-                .mapToInt(Integer::valueOf)
+        return Parser.parseToIntStream(string, delimiter)
                 .toArray();
+    }
+
+    /**
+     * Parse a String representing separated Integer to an IntStream.
+     * @param string    A String
+     * @param delimiter A delimiter
+     * @return          An IntStream
+     */
+    private static IntStream parseToIntStream(String string, String delimiter) {
+        return Arrays.stream(string.split(delimiter))
+                .mapToInt(Integer::valueOf);
     }
 
 }
