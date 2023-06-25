@@ -17,7 +17,6 @@ public class TheTreacheryOfWhales {
         final CrabSwarm crabs = new CrabSwarm(input);
 
         long part1 = crabs.minimumFuelConsumption(false);
-        System.out.println();
         System.out.println("-> Part1: " + part1);   // 344535
 
         long part2 = crabs.minimumFuelConsumption(true);
