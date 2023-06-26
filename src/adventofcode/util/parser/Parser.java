@@ -2,6 +2,8 @@ package adventofcode.util.parser;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -32,6 +34,18 @@ public class Parser {
     public static int[] parseToIntArray(String string, String delimiter) {
         return Parser.parseToIntStream(string, delimiter)
                 .toArray();
+    }
+
+    /**
+     * TODO: look for more places to use this method in older code
+     * Parse a String into a modifiable Set of Integer (Character)
+     * @param string
+     * @return
+     */
+    public static Set<Integer> parseStringToIntSet(String string) {
+        return string.chars()
+                .boxed()
+                .collect(Collectors.toSet());
     }
 
     /**
