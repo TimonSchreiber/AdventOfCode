@@ -11,7 +11,7 @@ import adventofcode.util.io.ReadInput;
 public class SevenSegmentSearch {
 
     public static void main(String[] args) {
-        System.out.println("\n--- Day 8: The Treachery of Whales ---\n");
+        System.out.println("\n--- Day 8: Seven Sigment Search ---\n");
 
         final String filePath = "aoc2021/day08/input";
 
