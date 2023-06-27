@@ -31,8 +31,7 @@ public class KeepAway {
     public long twoMostActiveMonkeys() {
         return this.monkeys.stream()
             .map(Monkey::numberOfInspections)
-            .mapToLong(Inspections::get)
-            .boxed()
+            .map(Inspections::get)
             .sorted(Comparator.reverseOrder())
             .limit(2)
             .reduce(1L, (a,b) -> a*b);
