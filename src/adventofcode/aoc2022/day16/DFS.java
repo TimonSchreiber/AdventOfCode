@@ -297,7 +297,8 @@ public class DFS {
         List<Integer> closedValvesFlowRate = this.rooms.keySet().stream()
                 .filter(str -> !openValves.contains(str))
                 .map(this.rooms::get)
-                .map(r -> r.valve().flowRate())
+                .map(Room::valve)
+                .map(Valve::flowRate)
                 .sorted(Comparator.reverseOrder())
                 .limit(remainingTime)
                 .toList();
