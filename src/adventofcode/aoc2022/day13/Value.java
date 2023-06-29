@@ -2,6 +2,7 @@ package adventofcode.aoc2022.day13;
 
 /**
  * Value
+ * TODO: improve the  method call/method delegation so the instanceof are no longer neccessary!
  */
 public sealed interface Value permits IntValue, ListValue {
 
